@@ -1,0 +1,20 @@
+version: "3.7"
+
+services:
+  exrx-net-crawler-server:
+    container_name: exrx-net-crawler-server-dev_dkr
+    image: "ijohnnymiller/exrx-net-crawler-server-dev_dkr:${TAG}"
+    ports:
+      - "8080:8080"
+    volumes:
+      - /Users/johnny/docker-file-mapping/exrx-net-crawler-server:/log-dev_dkr
+    networks:
+      exrx_net_crawler_network:
+        ipv4_address: 172.11.239.10
+
+networks:
+  exrx_net_crawler_network:
+    ipam:
+      driver: default
+      config:
+        - subnet: "172.11.239.0/24"

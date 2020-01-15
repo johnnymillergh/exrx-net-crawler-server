@@ -1,0 +1,20 @@
+version: "3.7"
+
+services:
+  exrx-net-crawler-server:
+    container_name: exrx-net-crawler-server-prod
+    image: "ijohnnymiller/exrx-net-crawler-server-prod:${TAG}"
+    ports:
+      - "8080:8080"
+    volumes:
+      - /Users/johnny/docker-file-mapping/exrx-net-crawler-server:/log-prod
+    networks:
+      dive_into_kotlin_network:
+        ipv4_address: 172.16.239.10
+
+networks:
+  dive_into_kotlin_network:
+    ipam:
+      driver: default
+      config:
+        - subnet: "172.11.239.0/24"

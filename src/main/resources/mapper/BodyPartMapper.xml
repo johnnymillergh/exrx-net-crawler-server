@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jmsoftware.exrxnetcrawlerserver.bodypart.mapper.BodyPartMapper">
+    <resultMap id="BaseResultMap" type="com.jmsoftware.exrxnetcrawlerserver.bodypart.domain.BodyPartPo">
+        <!--@mbg.generated-->
+        <!--@Table body_part-->
+        <id column="id" jdbcType="BIGINT" property="id"/>
+        <result column="name" jdbcType="VARCHAR" property="name"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        <!--@mbg.generated-->
+        id, `name`
+    </sql>
+
+    <insert id="insertBodyPartList">
+        INSERT INTO body_part(id, name) VALUES
+        <foreach collection="bodyPartPoList" item="item" separator=",">
+            (#{item.id}, #{item.name})
+        </foreach>
+    </insert>
+</mapper>

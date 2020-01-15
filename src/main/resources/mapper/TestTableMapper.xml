@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jmsoftware.exrxnetcrawlerserver.testtable.mapper.TestTableMapper">
+    <select id="selectById" resultType="com.jmsoftware.exrxnetcrawlerserver.testtable.domain.TestTablePo">
+        SELECT tt.id,
+               tt.string_value   AS stringValue,
+               tt.int_value      AS intValue,
+               tt.double_value   AS doubleValue,
+               tt.datetime_value AS datetimeValue
+        FROM test_table tt
+        WHERE tt.id = #{id}
+    </select>
+</mapper>

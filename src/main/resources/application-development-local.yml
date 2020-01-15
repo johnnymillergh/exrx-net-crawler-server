@@ -1,0 +1,34 @@
+server:
+  port: 8080
+
+spring:
+  datasource:
+    name: datasource-one
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    type: com.alibaba.druid.pool.DruidDataSource
+    url: jdbc:mysql://localhost:3306/exercise_dictionary?useSSL=true&useUnicode=true
+    username: root
+    password: jm@mysql
+  devtools:
+    restart:
+      enabled: true
+
+logging:
+  # Configure logging level for SFTP/JSCH
+  level:
+    com:
+      jcraft:
+        jsch: INFO
+
+sftp:
+  client:
+    configuration:
+      host: localhost
+      port: 23
+      user: johnny
+      password: atmoz@sftp
+      directory: upload
+      private-key:
+      private-key-pass-phrase:
+      session-cache-size: 20
+      session-wait-timeout: 15000
