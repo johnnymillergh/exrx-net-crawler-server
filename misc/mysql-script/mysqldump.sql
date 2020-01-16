@@ -274,10 +274,10 @@ DROP TABLE IF EXISTS `related_muscle`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `related_muscle` (
-  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
-  `muscle_id` bigint(20) unsigned DEFAULT NULL,
-  `related_muscle_id` bigint(20) unsigned DEFAULT NULL,
-  `related_muscle_type` tinyint(4) DEFAULT NULL COMMENT 'Related muscle type. 0 - the related muscle is parent node; 1 - normal related muscle',
+  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT COMMENT 'The ID of related muscle.',
+  `muscle_id` bigint(20) unsigned NOT NULL COMMENT 'The ID of muscle.',
+  `related_muscle_id` bigint(20) unsigned NOT NULL COMMENT 'Related mucles''s ID.',
+  `related_muscle_type` tinyint(4) NOT NULL COMMENT 'Related muscle type. 0 - the related muscle is parent node; 1 - normal related muscle',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='Muscle''s related muscles.';
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -327,4 +327,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-01-16 13:02:18
+-- Dump completed on 2020-01-16 16:47:24
