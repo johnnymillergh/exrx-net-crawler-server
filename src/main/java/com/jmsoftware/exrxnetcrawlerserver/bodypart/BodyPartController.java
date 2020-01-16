@@ -32,6 +32,6 @@ public class BodyPartController {
     @ApiOperation(value = "/save-body-part", notes = "Save body part")
     public ResponseBodyBean<Integer> saveBodyPart(@Valid @RequestBody SaveBodyPartPayload payload) {
         Integer affectedRows = bodyPartService.saveBodyPart(payload.getBodyPartNameList());
-        return ResponseBodyBean.ofDataAndMessage(affectedRows, "Succeed to save body parts.");
+        return ResponseBodyBean.ofDataAndMessage(affectedRows, "Succeed! Inserted record(s): " + affectedRows);
     }
 }
