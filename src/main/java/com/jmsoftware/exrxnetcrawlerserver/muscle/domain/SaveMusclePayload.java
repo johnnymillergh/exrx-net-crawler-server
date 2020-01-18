@@ -2,6 +2,7 @@ package com.jmsoftware.exrxnetcrawlerserver.muscle.domain;
 
 import lombok.Data;
 
+import javax.validation.Valid;
 import java.util.List;
 
 /**
@@ -14,6 +15,7 @@ import java.util.List;
  **/
 @Data
 public class SaveMusclePayload {
+    @Valid
     private List<MusclePayload> musclePayloadList;
 }
 
