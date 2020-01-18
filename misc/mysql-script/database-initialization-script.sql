@@ -10,7 +10,9 @@ CREATE TABLE body_part (
 CREATE TABLE equipment (
     id   bigint UNSIGNED AUTO_INCREMENT
         PRIMARY KEY,
-    name varchar(50) NOT NULL COMMENT 'The name of equipment.'
+    name varchar(50) NOT NULL COMMENT 'The name of equipment.',
+    CONSTRAINT equipment_name_uindex
+        UNIQUE (name)
 )
     COMMENT 'Exercise Equipment.';
 
@@ -101,10 +103,12 @@ https://exrx.net/Kinesiology/Glossary';
 CREATE TABLE muscle (
     id           bigint UNSIGNED AUTO_INCREMENT COMMENT 'The ID of muscle.'
         PRIMARY KEY,
-    name         tinytext        NOT NULL COMMENT 'The name of muscle.',
+    name         varchar(50)     NOT NULL COMMENT 'The name of muscle.',
     other_names  varchar(200)    NULL COMMENT 'The muslce''s other names.',
     parent_id    bigint UNSIGNED NULL COMMENT 'The parent ID of muscle.',
-    body_part_id bigint UNSIGNED NOT NULL COMMENT 'Related body part ID.'
+    body_part_id bigint UNSIGNED NOT NULL COMMENT 'Related body part ID.',
+    CONSTRAINT muscle_name_uindex
+        UNIQUE (name)
 )
     COMMENT 'Muscle.
 
