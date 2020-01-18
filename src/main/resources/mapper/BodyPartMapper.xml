@@ -9,9 +9,9 @@
     </resultMap>
 
     <insert id="insertBodyPartList">
-        INSERT INTO body_part(id, name) VALUES
+        INSERT INTO body_part(name) VALUES
         <foreach collection="bodyPartPoList" item="item" separator=",">
-            (#{item.id}, #{item.name})
+            (#{item.name})
         </foreach>
     </insert>
 </mapper>
