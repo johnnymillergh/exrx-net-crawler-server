@@ -252,6 +252,7 @@ CREATE TABLE `muscle_image` (
   `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT COMMENT 'The ID of muscle image.',
   `muscle_id` bigint(20) unsigned NOT NULL COMMENT 'The ID of muslce.',
   `image_path` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL COMMENT 'The image path of muscle image.',
+  `alternative_text` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL COMMENT 'A textual description of the image.',
   PRIMARY KEY (`id`),
   UNIQUE KEY `muscle_image_image_path_uindex` (`image_path`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='Muscle Image.\n\nThe relationship:\nOne muscle to one or more muscle image.';
@@ -326,4 +327,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-01-19  8:34:29
+-- Dump completed on 2020-01-19 12:39:10

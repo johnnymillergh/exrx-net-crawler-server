@@ -115,10 +115,11 @@ CREATE TABLE muscle (
 https://exrx.net/Lists/Muscle';
 
 CREATE TABLE muscle_image (
-    id         bigint UNSIGNED AUTO_INCREMENT COMMENT 'The ID of muscle image.'
+    id               bigint UNSIGNED AUTO_INCREMENT COMMENT 'The ID of muscle image.'
         PRIMARY KEY,
-    muscle_id  bigint UNSIGNED NOT NULL COMMENT 'The ID of muslce.',
-    image_path varchar(100)    NOT NULL COMMENT 'The image path of muscle image.',
+    muscle_id        bigint UNSIGNED NOT NULL COMMENT 'The ID of muslce.',
+    image_path       varchar(100)    NOT NULL COMMENT 'The image path of muscle image.',
+    alternative_text varchar(100)    NOT NULL COMMENT 'A textual description of the image.',
     CONSTRAINT muscle_image_image_path_uindex
         UNIQUE (image_path)
 )
@@ -131,7 +132,7 @@ CREATE TABLE related_muscle (
     id                bigint UNSIGNED AUTO_INCREMENT COMMENT 'The ID of related muscle.'
         PRIMARY KEY,
     muscle_id         bigint UNSIGNED NOT NULL COMMENT 'The ID of muscle.',
-    related_muscle_id bigint UNSIGNED NOT NULL COMMENT 'Related muscles''s ID.'
+    related_muscle_id bigint UNSIGNED NOT NULL COMMENT 'Related muscle''s ID.'
 )
     COMMENT 'Muscle''s related muscles.';
 
@@ -143,5 +144,5 @@ CREATE TABLE test_table (
     double_value   double      NULL,
     datetime_value datetime    NULL
 )
-    COMMENT 'TypeORM Test Table';
+    COMMENT 'Test Table for ORM library.';
 

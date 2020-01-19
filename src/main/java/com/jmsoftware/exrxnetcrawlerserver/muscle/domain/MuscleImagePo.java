@@ -26,4 +26,8 @@ public class MuscleImagePo {
      * The image path of muscle image.
      */
     private String imagePath;
+    /**
+     * A textual description of the image.
+     */
+    private String alternativeText;
 }

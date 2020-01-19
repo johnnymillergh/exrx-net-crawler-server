@@ -6,9 +6,10 @@
         <id column="id" jdbcType="BIGINT" property="id"/>
         <result column="muscle_id" jdbcType="BIGINT" property="muscleId"/>
         <result column="image_path" jdbcType="VARCHAR" property="imagePath"/>
+        <result column="alternative_text" jdbcType="VARCHAR" property="alternativeText"/>
     </resultMap>
 
     <sql id="Base_Column_List">
-        id, muscle_id, image_path
+        id, muscle_id, image_path, alternative_text
     </sql>
 </mapper>
