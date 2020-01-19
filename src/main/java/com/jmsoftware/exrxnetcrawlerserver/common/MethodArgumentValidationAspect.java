@@ -79,8 +79,7 @@ public class MethodArgumentValidationAspect {
      */
     @Around("validateMethodArgumentPointcut()")
     public Object aroundMethodHandleArgument(ProceedingJoinPoint proceedingJoinPoint) throws Throwable {
-        log.info("=========================== METHOD'S ARGUMENT VALIDATION START ===========================");
-
+        log.info("======= METHOD'S ARGUMENT VALIDATION START =======");
         Object[] args = proceedingJoinPoint.getArgs();
         MethodSignature signature = (MethodSignature) proceedingJoinPoint.getSignature();
         Annotation[][] parameterAnnotations = signature.getMethod().getParameterAnnotations();
@@ -121,7 +120,7 @@ public class MethodArgumentValidationAspect {
      */
     @After("validateMethodArgumentPointcut()")
     public void afterMethodHandleArgument() {
-        log.info("============================ METHOD'S ARGUMENT VALIDATION END ============================");
+        log.info("======== METHOD'S ARGUMENT VALIDATION END ========");
     }
 
     /**
@@ -135,6 +134,6 @@ public class MethodArgumentValidationAspect {
     public void afterThrowingException(JoinPoint joinPoint, Exception e) {
         log.info("Signature      : {}", joinPoint.getSignature().toShortString());
         log.info("Exception Info : {}", e.toString());
-        log.info("==================== METHOD'S ARGUMENT VALIDATION END WITH EXCEPTION =====================");
+        log.info("== METHOD'S ARGUMENT VALIDATION END WITH EXCEPTION ==");
     }
 }
