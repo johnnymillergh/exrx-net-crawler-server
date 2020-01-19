@@ -23,11 +23,7 @@ public class RelatedMusclePo {
      */
     private Long muscleId;
     /**
-     * Related mucles's ID.
+     * Related muscle's ID.
      */
     private Long relatedMuscleId;
-    /**
-     * Related muscle type. 0 - the related muscle is parent node; 1 - normal related muscle
-     */
-    private Byte relatedMuscleType;
 }

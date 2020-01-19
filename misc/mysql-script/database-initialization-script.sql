@@ -128,11 +128,10 @@ The relationship:
 One muscle to one or more muscle image.';
 
 CREATE TABLE related_muscle (
-    id                  bigint UNSIGNED AUTO_INCREMENT
+    id                bigint UNSIGNED AUTO_INCREMENT COMMENT 'The ID of related muscle.'
         PRIMARY KEY,
-    muscle_id           bigint UNSIGNED NULL,
-    related_muscle_id   bigint UNSIGNED NULL,
-    related_muscle_type tinyint         NULL COMMENT 'Related muscle type. 0 - the related muscle is parent node; 1 - normal related muscle'
+    muscle_id         bigint UNSIGNED NOT NULL COMMENT 'The ID of muscle.',
+    related_muscle_id bigint UNSIGNED NOT NULL COMMENT 'Related muscles''s ID.'
 )
     COMMENT 'Muscle''s related muscles.';
 

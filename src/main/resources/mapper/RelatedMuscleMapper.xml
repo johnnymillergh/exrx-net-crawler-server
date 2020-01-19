@@ -6,10 +6,9 @@
         <id column="id" jdbcType="BIGINT" property="id"/>
         <result column="muscle_id" jdbcType="BIGINT" property="muscleId"/>
         <result column="related_muscle_id" jdbcType="BIGINT" property="relatedMuscleId"/>
-        <result column="related_muscle_type" jdbcType="TINYINT" property="relatedMuscleType"/>
     </resultMap>
 
     <sql id="Base_Column_List">
-        id, muscle_id, related_muscle_id, related_muscle_type
+        id, muscle_id, related_muscle_id
     </sql>
 </mapper>
