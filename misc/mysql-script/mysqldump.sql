@@ -198,7 +198,7 @@ DROP TABLE IF EXISTS `kinesiology_glossary`;
 CREATE TABLE `kinesiology_glossary` (
   `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT COMMENT 'The ID of kinesiology glossary.',
   `name` varchar(30) COLLATE utf8mb4_unicode_ci NOT NULL COMMENT 'The name kinesiology glossary.',
-  `description` varchar(2000) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `description` varchar(2000) COLLATE utf8mb4_unicode_ci DEFAULT NULL COMMENT 'The description of kinesiology glossary.',
   `parent_id` int(11) DEFAULT NULL COMMENT 'The parent ID of kinesiology glossary.',
   PRIMARY KEY (`id`),
   UNIQUE KEY `kinesiology_glossary_name_uindex` (`name`)

@@ -91,7 +91,7 @@ CREATE TABLE kinesiology_glossary (
     id          bigint UNSIGNED AUTO_INCREMENT COMMENT 'The ID of kinesiology glossary.'
         PRIMARY KEY,
     name        varchar(30)   NOT NULL COMMENT 'The name kinesiology glossary.',
-    description varchar(2000) NULL,
+    description varchar(2000) NULL COMMENT 'The description of kinesiology glossary.',
     parent_id   int           NULL COMMENT 'The parent ID of kinesiology glossary.',
     CONSTRAINT kinesiology_glossary_name_uindex
         UNIQUE (name)
