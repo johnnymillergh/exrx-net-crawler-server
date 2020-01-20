@@ -39,7 +39,6 @@ public class MuscleServiceImpl implements MuscleService {
     private final MuscleImageService muscleImageService;
     private final SftpService sftpService;
 
-
     @Override
     @Transactional(rollbackFor = Throwable.class)
     public Integer saveMuscleWithDefaultBodyPartId(List<MusclePayload> musclePayloadList) {
