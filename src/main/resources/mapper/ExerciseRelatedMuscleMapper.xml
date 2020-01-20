@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jmsoftware.exrxnetcrawlerserver.exercise.mapper.ExerciseRelatedMuscleMapper">
+    <resultMap id="BaseResultMap" type="com.jmsoftware.exrxnetcrawlerserver.exercise.domain.ExerciseRelatedMusclePo">
+        <!--@Table exercise_related_muscle-->
+        <id column="id" jdbcType="BIGINT" property="id"/>
+        <result column="muscle_id" jdbcType="BIGINT" property="muscleId"/>
+        <result column="related_muscle_type" jdbcType="TINYINT" property="relatedMuscleType"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id, muscle_id, related_muscle_type
+    </sql>
+</mapper>
