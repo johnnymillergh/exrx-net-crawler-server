@@ -1,6 +1,5 @@
 package com.jmsoftware.exrxnetcrawlerserver.bodypart.domain;
 
-import lombok.Builder;
 import lombok.Data;
 
 /**
@@ -13,7 +12,6 @@ import lombok.Data;
  * @see <a href='https://exrx.net/Lists/Directory'>Body Part</a>
  **/
 @Data
-@Builder
 public class BodyPartPo {
     /**
      * The ID of body part.

@@ -30,7 +30,8 @@ public class BodyPartServiceImpl implements BodyPartService {
         }
         var bodyPartPoList = new LinkedList<BodyPartPo>();
         bodyPartNameList.forEach(bodyPartName -> {
-            BodyPartPo bodyPartPo = BodyPartPo.builder().name(bodyPartName).build();
+            var bodyPartPo = new BodyPartPo();
+            bodyPartPo.setName(bodyPartName);
             bodyPartPoList.add(bodyPartPo);
         });
         return bodyPartMapper.insertBodyPartList(bodyPartPoList);
