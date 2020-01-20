@@ -8,7 +8,7 @@
         <result column="name" jdbcType="VARCHAR" property="name"/>
     </resultMap>
 
-    <insert id="insertBodyPartList">
+    <insert id="insertBodyPartList" useGeneratedKeys="true" keyProperty="id">
         INSERT INTO body_part(name) VALUES
         <foreach collection="bodyPartPoList" item="item" separator=",">
             (#{item.name})

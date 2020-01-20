@@ -1,6 +1,5 @@
 package com.jmsoftware.exrxnetcrawlerserver.muscle.mapper;
 
-import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.jmsoftware.exrxnetcrawlerserver.muscle.domain.MuscleImagePo;
 import org.apache.ibatis.annotations.Mapper;
 
@@ -13,5 +12,12 @@ import org.apache.ibatis.annotations.Mapper;
  * @date 1/16/20 4:54 PM
  **/
 @Mapper
-public interface MuscleImageMapper extends BaseMapper<MuscleImagePo> {
+public interface MuscleImageMapper {
+    /**
+     * Insert muscle image integer.
+     *
+     * @param muscleImagePo the muscle image po
+     * @return the integer
+     */
+    Integer insertMuscleImage(MuscleImagePo muscleImagePo);
 }

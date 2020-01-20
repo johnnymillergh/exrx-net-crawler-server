@@ -2,16 +2,17 @@ package com.jmsoftware.exrxnetcrawlerserver.muscle;
 
 import com.jmsoftware.exrxnetcrawlerserver.common.ResponseBodyBean;
 import com.jmsoftware.exrxnetcrawlerserver.muscle.domain.SaveMusclePayload;
+import com.jmsoftware.exrxnetcrawlerserver.muscle.domain.UpdateMuscleDetailsPayload;
 import com.jmsoftware.exrxnetcrawlerserver.muscle.service.MuscleService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import lombok.RequiredArgsConstructor;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
 import javax.validation.Valid;
+import java.io.IOException;
+import java.util.List;
 
 /**
  * <h1>MuscleController</h1>
@@ -34,5 +35,14 @@ public class MuscleController {
         Integer affectedRows = muscleService.saveMuscleWithDefaultBodyPartId(saveMusclePayload.getMusclePayloadList());
         return ResponseBodyBean.ofDataAndMessage(affectedRows,
                                                  "Succeeded to save muscle. Affected rows: " + affectedRows);
+    }
+
+    @PostMapping("/update-muscle-details")
+    @ApiOperation(value = "/update-muscle-details", notes = "Update muscle details")
+    public ResponseBodyBean<Integer> updateMuscleDetails(@RequestPart List<MultipartFile> muscleImageList,
+                                                         @Valid UpdateMuscleDetailsPayload payload) throws IOException {
+        muscleService.updateMuscleDetails(muscleImageList, payload);
+        return ResponseBodyBean.ofDataAndMessage(200,
+                                                 "Succeeded to update muscle details. Muscle name: " + payload.getName());
     }
 }

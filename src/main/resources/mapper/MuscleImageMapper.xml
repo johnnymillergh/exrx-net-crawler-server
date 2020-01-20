@@ -12,4 +12,13 @@
     <sql id="Base_Column_List">
         id, muscle_id, image_path, alternative_text
     </sql>
+
+    <insert id="insertMuscleImage" useGeneratedKeys="true" keyProperty="id">
+        INSERT INTO muscle_image(muscle_id,
+                                 image_path,
+                                 alternative_text)
+        VALUES (#{muscleId},
+                #{imagePath},
+                #{alternativeText})
+    </insert>
 </mapper>

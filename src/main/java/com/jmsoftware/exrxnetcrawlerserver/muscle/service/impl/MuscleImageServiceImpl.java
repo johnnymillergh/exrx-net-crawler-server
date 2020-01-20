@@ -1,5 +1,6 @@
 package com.jmsoftware.exrxnetcrawlerserver.muscle.service.impl;
 
+import com.jmsoftware.exrxnetcrawlerserver.muscle.domain.MuscleImagePo;
 import com.jmsoftware.exrxnetcrawlerserver.muscle.mapper.MuscleImageMapper;
 import com.jmsoftware.exrxnetcrawlerserver.muscle.service.MuscleImageService;
 import lombok.RequiredArgsConstructor;
@@ -17,4 +18,9 @@ import org.springframework.stereotype.Service;
 @RequiredArgsConstructor
 public class MuscleImageServiceImpl implements MuscleImageService {
     private final MuscleImageMapper muscleImageMapper;
+
+    @Override
+    public Integer saveMuscleImage(MuscleImagePo muscleImagePo) {
+        return muscleImageMapper.insertMuscleImage(muscleImagePo);
+    }
 }

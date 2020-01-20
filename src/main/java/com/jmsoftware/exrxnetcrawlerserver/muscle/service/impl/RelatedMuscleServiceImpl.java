@@ -1,5 +1,6 @@
 package com.jmsoftware.exrxnetcrawlerserver.muscle.service.impl;
 
+import com.jmsoftware.exrxnetcrawlerserver.muscle.domain.RelatedMusclePo;
 import com.jmsoftware.exrxnetcrawlerserver.muscle.mapper.RelatedMuscleMapper;
 import com.jmsoftware.exrxnetcrawlerserver.muscle.service.RelatedMuscleService;
 import lombok.RequiredArgsConstructor;
@@ -17,4 +18,15 @@ import org.springframework.stereotype.Service;
 @RequiredArgsConstructor
 public class RelatedMuscleServiceImpl implements RelatedMuscleService {
     private final RelatedMuscleMapper relatedMuscleMapper;
+
+    @Override
+    public boolean hasExisted(RelatedMusclePo relatedMusclePo) {
+        Integer count = relatedMuscleMapper.selectByMuscleIdAndRelatedMuscleId(relatedMusclePo);
+        return count > 0;
+    }
+
+    @Override
+    public Integer saveRelatedMuscle(RelatedMusclePo relatedMusclePo) {
+        return relatedMuscleMapper.insertRelatedMuscle(relatedMusclePo);
+    }
 }

@@ -11,4 +11,18 @@
     <sql id="Base_Column_List">
         id, muscle_id, related_muscle_id
     </sql>
+
+    <select id="selectByMuscleIdAndRelatedMuscleId" resultType="java.lang.Integer">
+        SELECT count(1)
+        FROM related_muscle rm
+        WHERE rm.muscle_id = #{muscleId}
+          AND rm.related_muscle_id = #{relatedMuscleId}
+    </select>
+
+    <insert id="insertRelatedMuscle" useGeneratedKeys="true" keyProperty="id">
+        INSERT INTO related_muscle(muscle_id,
+                                   related_muscle_id)
+        VALUES (#{muscleId},
+                #{relatedMuscleId})
+    </insert>
 </mapper>

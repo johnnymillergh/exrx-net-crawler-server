@@ -1,6 +1,5 @@
 package com.jmsoftware.exrxnetcrawlerserver.muscle.mapper;
 
-import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.jmsoftware.exrxnetcrawlerserver.muscle.domain.MusclePo;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
@@ -16,7 +15,7 @@ import java.util.List;
  * @date 1/16/20 3:57 PM
  */
 @Mapper
-public interface MuscleMapper extends BaseMapper<MusclePo> {
+public interface MuscleMapper{
     /**
      * Insert muscle list integer.
      *
@@ -24,4 +23,20 @@ public interface MuscleMapper extends BaseMapper<MusclePo> {
      * @return the integer
      */
     Integer insertMuscleList(@Param("musclePoList") List<MusclePo> musclePoList);
+
+    /**
+     * Select by name muscle po.
+     *
+     * @param name the name
+     * @return the muscle po
+     */
+    MusclePo selectByName(String name);
+
+    /**
+     * Update by id integer.
+     *
+     * @param musclePo the muscle po
+     * @return the integer
+     */
+    Integer updateById(MusclePo musclePo);
 }

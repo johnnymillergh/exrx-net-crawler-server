@@ -23,4 +23,27 @@
             #{item.bodyPartId})
         </foreach>
     </insert>
+
+    <select id="selectByName" resultMap="BaseResultMap">
+        SELECT id,
+               name
+        FROM muscle m
+        WHERE m.name = #{name}
+    </select>
+
+    <update id="updateById">
+        UPDATE muscle
+        <set>
+            <if test="otherNames != null and otherNames != ''">
+                other_names = #{otherNames},
+            </if>
+            <if test="parentId != null">
+                parent_id = #{parentId},
+            </if>
+            <if test="bodyPartId != null">
+                body_part_id = #{bodyPartId}
+            </if>
+        </set>
+        WHERE id = #{id}
+    </update>
 </mapper>

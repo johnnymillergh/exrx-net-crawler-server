@@ -1,6 +1,5 @@
 package com.jmsoftware.exrxnetcrawlerserver.muscle.mapper;
 
-import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.jmsoftware.exrxnetcrawlerserver.muscle.domain.RelatedMusclePo;
 import org.apache.ibatis.annotations.Mapper;
 
@@ -13,5 +12,20 @@ import org.apache.ibatis.annotations.Mapper;
  * @date 1/16/20 4:54 PM
  **/
 @Mapper
-public interface RelatedMuscleMapper extends BaseMapper<RelatedMusclePo> {
+public interface RelatedMuscleMapper{
+    /**
+     * Select by muscle id and related muscle id integer.
+     *
+     * @param relatedMusclePo the related muscle po
+     * @return the integer
+     */
+    Integer selectByMuscleIdAndRelatedMuscleId(RelatedMusclePo relatedMusclePo);
+
+    /**
+     * Insert related muscle integer.
+     *
+     * @param relatedMusclePo the related muscle po
+     * @return the integer
+     */
+    Integer insertRelatedMuscle(RelatedMusclePo relatedMusclePo);
 }
