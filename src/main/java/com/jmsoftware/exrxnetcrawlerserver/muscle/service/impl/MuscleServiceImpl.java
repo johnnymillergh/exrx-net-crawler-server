@@ -95,6 +95,7 @@ public class MuscleServiceImpl implements MuscleService {
             var muscleImagePo = new MuscleImagePo();
             muscleImagePo.setMuscleId(musclePo.getId());
             muscleImagePo.setImagePath(imagePath);
+            // To prevent MySQL INSERT error, set alternativeText
             muscleImagePo.setAlternativeText(musclePo.getName());
             var affectedRows = muscleImageService.saveMuscleImage(muscleImagePo);
             log.info("Saved {} muscle image. muscleImage: {}", affectedRows, muscleImagePo);

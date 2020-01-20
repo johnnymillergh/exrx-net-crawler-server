@@ -27,6 +27,7 @@ public interface TestTableService {
      * Test upload.
      *
      * @param multipartFileList the multipart file list
+     * @throws IOException the io exception
      */
     void testUpload(List<MultipartFile> multipartFileList) throws IOException;
 }

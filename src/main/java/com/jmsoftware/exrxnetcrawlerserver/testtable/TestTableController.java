@@ -32,7 +32,8 @@ public class TestTableController {
     @GetMapping("/get-by-id")
     @ApiOperation(value = "/get-by-id", notes = "Get by id")
     public ResponseBodyBean<TestTablePo> getById(@Valid GetByIdPayload payload) {
-        return ResponseBodyBean.ofData(testTableService.getById(payload.getId()));
+        return ResponseBodyBean.ofDataAndMessage(testTableService.getById(payload.getId()),
+                                                 "Succeed to communicate with back-end server.");
     }
 
     @PostMapping("/test-upload")
