@@ -8,7 +8,7 @@ CREATE TABLE body_part (
     COMMENT 'Human Body Part.';
 
 CREATE TABLE equipment (
-    id   bigint UNSIGNED AUTO_INCREMENT
+    id   bigint UNSIGNED AUTO_INCREMENT COMMENT 'The ID of exercise equipment.'
         PRIMARY KEY,
     name varchar(50) NOT NULL COMMENT 'The name of equipment.',
     CONSTRAINT equipment_name_uindex
