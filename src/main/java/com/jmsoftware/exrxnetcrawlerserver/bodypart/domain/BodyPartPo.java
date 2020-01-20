@@ -22,4 +22,3 @@ public class BodyPartPo {
      */
     private String name;
 }
-
