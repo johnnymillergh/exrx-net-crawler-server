@@ -1,7 +1,7 @@
 package com.jmsoftware.exrxnetcrawlerserver.equipment.service.impl;
 
+import com.jmsoftware.exrxnetcrawlerserver.equipment.mapper.EquipmentMapper;
 import com.jmsoftware.exrxnetcrawlerserver.equipment.service.EquipmentService;
-import com.jmsoftware.exrxnetcrawlerserver.exercise.mapper.EquipmentMapper;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
