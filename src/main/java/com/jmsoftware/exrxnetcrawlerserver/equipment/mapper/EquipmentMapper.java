@@ -1,5 +1,6 @@
 package com.jmsoftware.exrxnetcrawlerserver.equipment.mapper;
 
+import com.jmsoftware.exrxnetcrawlerserver.equipment.domain.EquipmentPo;
 import org.apache.ibatis.annotations.Mapper;
 
 /**
@@ -12,4 +13,11 @@ import org.apache.ibatis.annotations.Mapper;
  **/
 @Mapper
 public interface EquipmentMapper {
+    /**
+     * Insert equipment integer.
+     *
+     * @param equipmentPo the equipment po
+     * @return the integer
+     */
+    Integer insertEquipment(EquipmentPo equipmentPo);
 }
