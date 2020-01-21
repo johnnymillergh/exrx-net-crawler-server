@@ -23,5 +23,5 @@ public class ExerciseRelatedClassificationPo {
     /**
      * 1 - Utility, 2 - Mechanics, 3 - Force
      */
-    private Byte relatedClassificationType;
+    private Integer relatedClassificationType;
 }
