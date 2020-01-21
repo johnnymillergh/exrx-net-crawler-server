@@ -63,6 +63,7 @@ public class ProjectProperty {
             this.licenses = model1.getLicenses();
             this.developers = model1.getDevelopers();
         });
+        optionalModel.orElseThrow(() -> new IllegalArgumentException("Cannot found the file 'pom.xml'!"));
     }
 
     /**
@@ -79,6 +80,7 @@ public class ProjectProperty {
             this.licenses = model1.getLicenses();
             this.developers = model1.getDevelopers();
         });
+        optionalModel.orElseThrow(() -> new IllegalArgumentException("Cannot found the file 'pom.xml'!"));
     }
 
     /**
