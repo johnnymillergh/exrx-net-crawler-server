@@ -34,8 +34,15 @@ public class RedirectController {
 
     @GetMapping("/")
     @ApiOperation(value = "/", notes = "Home page")
-    public void handleGetRequest(HttpServletResponse response) throws IOException {
+    public void handleHomeRequest(HttpServletResponse response) throws IOException {
         // Redirect to Bootstrap Swagger API documentation
         response.sendRedirect(projectProperty.getContextPath() + "/static/home.html");
+    }
+
+    @GetMapping("/doc")
+    @ApiOperation(value = "/doc", notes = "Swagger API Documentation")
+    public void handleDocRequest(HttpServletResponse response) throws IOException {
+        // Redirect to Bootstrap Swagger API documentation
+        response.sendRedirect(projectProperty.getContextPath() + "/doc.html?cache=1&lang=en");
     }
 }

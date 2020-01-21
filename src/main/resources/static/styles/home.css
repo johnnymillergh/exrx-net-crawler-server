@@ -200,3 +200,8 @@ button:hover {
 .server-name {
     color: gold;
 }
+
+.go-to {
+    display: block;
+    margin: 0 auto 8px;
+}
