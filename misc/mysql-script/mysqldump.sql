@@ -174,9 +174,9 @@ DROP TABLE IF EXISTS `exercise_related_muscle`;
 CREATE TABLE `exercise_related_muscle` (
   `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT COMMENT 'The ID of exercise related muscle.',
   `muscle_id` bigint(20) unsigned NOT NULL COMMENT 'The ID of muscle.',
-  `related_muscle_type` tinyint(4) NOT NULL COMMENT 'Related muscle type.\n1 - target, 2 - synergists, 3 - stabilizers',
+  `related_muscle_type` tinyint(4) NOT NULL COMMENT 'Related muscle type. Muscle movement classification.\n\n1 - Agonist\n2 - Antagonist\n3 - Target\n4 - Synergist\n5 - Stabilizer\n6 - Dynamic Stabilizer\n7 - Antagonist Stabilizer\n\nhttps://exrx.net/Kinesiology/Glossary#MuscleMovClass',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='Exercise Related Muscle.\n\nRelationship:\nOne exercise can have 3 different types of related muscle.\nAnd one exercise can have more than one specific type of related muscles.';
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='Exercise Related Muscle.\n\nRelationship:\nOne exercise can have 3 (or more) different types of related muscle.\nAnd one exercise can have more than one specific type of related muscles.';
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -305,7 +305,7 @@ CREATE TABLE `test_table` (
   `double_value` double DEFAULT NULL,
   `datetime_value` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='TypeORM Test Table';
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='Test Table for ORM library.';
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -327,4 +327,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-01-19 12:39:10
+-- Dump completed on 2020-01-21 10:44:00

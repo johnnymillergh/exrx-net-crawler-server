@@ -78,13 +78,22 @@ CREATE TABLE exercise_related_muscle (
     id                  bigint UNSIGNED AUTO_INCREMENT COMMENT 'The ID of exercise related muscle.'
         PRIMARY KEY,
     muscle_id           bigint UNSIGNED NOT NULL COMMENT 'The ID of muscle.',
-    related_muscle_type tinyint         NOT NULL COMMENT 'Related muscle type.
-1 - target, 2 - synergists, 3 - stabilizers'
+    related_muscle_type tinyint         NOT NULL COMMENT 'Related muscle type. Muscle movement classification.
+
+1 - Agonist
+2 - Antagonist
+3 - Target
+4 - Synergist
+5 - Stabilizer
+6 - Dynamic Stabilizer
+7 - Antagonist Stabilizer
+
+https://exrx.net/Kinesiology/Glossary#MuscleMovClass'
 )
     COMMENT 'Exercise Related Muscle.
 
 Relationship:
-One exercise can have 3 different types of related muscle.
+One exercise can have 3 (or more) different types of related muscle.
 And one exercise can have more than one specific type of related muscles.';
 
 CREATE TABLE kinesiology_glossary (
