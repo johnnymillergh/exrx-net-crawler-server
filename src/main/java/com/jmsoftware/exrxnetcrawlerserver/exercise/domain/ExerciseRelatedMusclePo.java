@@ -35,6 +35,8 @@ public class ExerciseRelatedMusclePo {
      * <p>'https://exrx.net/Kinesiology/Glossary#MuscleMovClass' target='_blank' class='url'>https://exrx
      * .net/Kinesiology/Glossary#MuscleMovClass</a>
      * </p>
+     *
+     * @see ExerciseRelatedMuscleType
      */
     private Integer relatedMuscleType;
 }

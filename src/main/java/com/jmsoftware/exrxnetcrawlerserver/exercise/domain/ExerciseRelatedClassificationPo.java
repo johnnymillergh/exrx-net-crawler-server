@@ -22,6 +22,8 @@ public class ExerciseRelatedClassificationPo {
     private Long exerciseClassificationId;
     /**
      * 1 - Utility, 2 - Mechanics, 3 - Force
+     *
+     * @see ExerciseRelatedClassificationType
      */
     private Integer relatedClassificationType;
 }

@@ -77,7 +77,13 @@ public enum ExerciseRelatedMuscleType {
     ANTAGONIST_STABILIZER("Antagonist Stabilizer - a muscle that contracts to maintain the tension potential of a " +
                           "biarticulate muscle at the adjacent joint.", 7);
 
+    /**
+     * The description of enum.
+     */
     private String description;
+    /**
+     * The value stored in database.
+     */
     private Integer value;
 
     ExerciseRelatedMuscleType(String description, Integer value) {
