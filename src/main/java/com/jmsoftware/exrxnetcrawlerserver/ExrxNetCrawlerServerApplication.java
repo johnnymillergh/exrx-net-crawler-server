@@ -1,7 +1,7 @@
 package com.jmsoftware.exrxnetcrawlerserver;
 
-import com.jmsoftware.exrxnetcrawlerserver.common.ProjectProperty;
-import com.jmsoftware.exrxnetcrawlerserver.common.ServerConfiguration;
+import com.jmsoftware.exrxnetcrawlerserver.common.configuration.ProjectProperty;
+import com.jmsoftware.exrxnetcrawlerserver.common.configuration.ServerConfiguration;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

@@ -1,6 +1,7 @@
-package com.jmsoftware.exrxnetcrawlerserver.common;
+package com.jmsoftware.exrxnetcrawlerserver.common.util;
 
 import cn.hutool.core.date.DateUtil;
+import com.jmsoftware.exrxnetcrawlerserver.common.SftpSubDirectory;
 import lombok.extern.slf4j.Slf4j;
 import org.codehaus.plexus.util.StringUtils;
 import org.springframework.web.multipart.MultipartFile;

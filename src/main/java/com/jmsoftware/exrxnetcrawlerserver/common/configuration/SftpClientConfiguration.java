@@ -1,4 +1,4 @@
-package com.jmsoftware.exrxnetcrawlerserver.common;
+package com.jmsoftware.exrxnetcrawlerserver.common.configuration;
 
 import com.jcraft.jsch.ChannelSftp;
 import lombok.Data;

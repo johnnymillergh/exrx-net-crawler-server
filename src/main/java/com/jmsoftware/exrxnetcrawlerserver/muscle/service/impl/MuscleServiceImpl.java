@@ -2,7 +2,7 @@ package com.jmsoftware.exrxnetcrawlerserver.muscle.service.impl;
 
 import cn.hutool.core.bean.BeanUtil;
 import cn.hutool.core.collection.CollectionUtil;
-import com.jmsoftware.exrxnetcrawlerserver.common.CaseConverter;
+import com.jmsoftware.exrxnetcrawlerserver.common.util.CaseConverter;
 import com.jmsoftware.exrxnetcrawlerserver.common.SftpService;
 import com.jmsoftware.exrxnetcrawlerserver.common.SftpSubDirectory;
 import com.jmsoftware.exrxnetcrawlerserver.muscle.domain.*;

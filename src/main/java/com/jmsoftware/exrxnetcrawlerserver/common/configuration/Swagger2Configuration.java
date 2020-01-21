@@ -1,6 +1,7 @@
-package com.jmsoftware.exrxnetcrawlerserver.common;
+package com.jmsoftware.exrxnetcrawlerserver.common.configuration;
 
 import cn.hutool.core.collection.CollectionUtil;
+import com.jmsoftware.exrxnetcrawlerserver.common.configuration.ProjectProperty;
 import lombok.RequiredArgsConstructor;
 import org.apache.maven.model.Developer;
 import org.springframework.context.annotation.Bean;

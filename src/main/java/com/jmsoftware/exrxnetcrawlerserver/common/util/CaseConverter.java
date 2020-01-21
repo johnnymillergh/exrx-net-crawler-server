@@ -1,4 +1,4 @@
-package com.jmsoftware.exrxnetcrawlerserver.common;
+package com.jmsoftware.exrxnetcrawlerserver.common.util;
 
 import java.util.Random;
 import java.util.regex.Pattern;

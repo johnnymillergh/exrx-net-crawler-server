@@ -1,5 +1,7 @@
-package com.jmsoftware.exrxnetcrawlerserver.common;
+package com.jmsoftware.exrxnetcrawlerserver.common.exception;
 
+import com.jmsoftware.exrxnetcrawlerserver.common.HttpStatus;
+import com.jmsoftware.exrxnetcrawlerserver.common.IUniversalStatus;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 

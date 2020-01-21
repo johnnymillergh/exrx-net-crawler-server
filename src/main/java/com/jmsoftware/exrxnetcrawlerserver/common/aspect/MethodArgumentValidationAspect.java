@@ -1,4 +1,4 @@
-package com.jmsoftware.exrxnetcrawlerserver.common;
+package com.jmsoftware.exrxnetcrawlerserver.common.aspect;
 
 import cn.hutool.core.collection.CollectionUtil;
 import cn.hutool.core.util.ArrayUtil;
@@ -50,7 +50,7 @@ public class MethodArgumentValidationAspect {
      * More detail at: <a href="https://howtodoinjava.com/spring-aop/aspectj-pointcut-expressions/">Spring aop aspectJ
      * pointcut expression examples</a>
      */
-    @Pointcut("@annotation(com.jmsoftware.exrxnetcrawlerserver.common.ValidateArgument)")
+    @Pointcut("@annotation(com.jmsoftware.exrxnetcrawlerserver.common.aspect.ValidateArgument)")
     public void validateMethodArgumentPointcut() {
     }
 

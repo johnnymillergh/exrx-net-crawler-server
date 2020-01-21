@@ -1,6 +1,9 @@
-package com.jmsoftware.exrxnetcrawlerserver.common;
+package com.jmsoftware.exrxnetcrawlerserver.common.util;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.jmsoftware.exrxnetcrawlerserver.common.HttpStatus;
+import com.jmsoftware.exrxnetcrawlerserver.common.ResponseBodyBean;
+import com.jmsoftware.exrxnetcrawlerserver.common.exception.BaseException;
 import lombok.extern.slf4j.Slf4j;
 
 import javax.servlet.http.HttpServletResponse;

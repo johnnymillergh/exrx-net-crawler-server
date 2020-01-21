@@ -1,4 +1,4 @@
-package com.jmsoftware.exrxnetcrawlerserver.common;
+package com.jmsoftware.exrxnetcrawlerserver.common.util;
 
 import org.codehaus.plexus.util.StringUtils;
 

@@ -1,5 +1,6 @@
-package com.jmsoftware.exrxnetcrawlerserver.common;
+package com.jmsoftware.exrxnetcrawlerserver.common.configuration;
 
+import com.jmsoftware.exrxnetcrawlerserver.common.configuration.ProjectProperty;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
