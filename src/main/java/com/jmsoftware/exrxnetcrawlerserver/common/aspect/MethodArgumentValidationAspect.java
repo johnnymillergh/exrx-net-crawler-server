@@ -98,13 +98,12 @@ public class MethodArgumentValidationAspect {
         for (Integer index : argumentIndexes) {
             Set<ConstraintViolation<Object>> validates = validator.validate(args[index]);
             if (CollectionUtil.isNotEmpty(validates)) {
-                log.error("Method's argument is not valid: {}", validates);
                 String message = String.format("Argument validation failed: %s", validates);
                 log.info("Method           : {}#{}",
                          proceedingJoinPoint.getSignature().getDeclaringTypeName(),
                          proceedingJoinPoint.getSignature().getName());
                 log.info("Argument         : {}", args);
-                log.info("Validation result: {}", message);
+                log.error("Validation result: {}", message);
                 // If the argument doesn't pass validation, an IllegalArgumentException will be thrown, and not
                 // proceed the target method
                 throw new IllegalArgumentException(message);
@@ -132,8 +131,8 @@ public class MethodArgumentValidationAspect {
      */
     @AfterThrowing(pointcut = "validateMethodArgumentPointcut()", throwing = "e")
     public void afterThrowingException(JoinPoint joinPoint, Exception e) {
-        log.info("Signature      : {}", joinPoint.getSignature().toShortString());
-        log.info("Exception Info : {}", e.toString());
+        log.info("Signature        : {}", joinPoint.getSignature().toShortString());
+        log.info("Exception Info   : {}", e.toString());
         log.info("== METHOD'S ARGUMENT VALIDATION END WITH EXCEPTION ==");
     }
 }
