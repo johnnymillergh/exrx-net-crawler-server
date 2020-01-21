@@ -40,11 +40,10 @@ public class ExrxNetCrawlerServerApplication {
         SpringApplication.run(ExrxNetCrawlerServerApplication.class, args);
         var endTime = System.currentTimeMillis();
         log.info("🥳 Congratulations! 🎉");
-        log.info("{}@{} started successfully!", projectProperty.getProjectArtifactId(), projectProperty.getVersion());
-        log.info("Current environment: {} ({})", projectProperty.getEnvironment(),
-                 projectProperty.getEnvironmentAlias());
-        log.info("Deployment duration: {} seconds ({} ms)", (endTime - startTime) / 1000, (endTime - startTime));
-        log.info("App started at {} (timezone - {})", new Date(), TimeZone.getDefault().getDisplayName());
+        log.info("🖥 {}@{} started!", projectProperty.getProjectArtifactId(), projectProperty.getVersion());
+        log.info("⚙️ Environment: {} ({})", projectProperty.getEnvironment(), projectProperty.getEnvironmentAlias());
+        log.info("⏳ Deployment duration: {} seconds ({} ms)", (endTime - startTime) / 1000, (endTime - startTime));
+        log.info("⏰ App started at {} (timezone - {})", new Date(), TimeZone.getDefault().getDisplayName());
         log.info("{}  App running at{}  - Local:   http://localhost:{}{}{}  - Network: {}",
                  LINE_SEPARATOR, LINE_SEPARATOR, serverConfiguration.getServerPort(), projectProperty.getContextPath(),
                  LINE_SEPARATOR, serverConfiguration.getBaseUrl());
