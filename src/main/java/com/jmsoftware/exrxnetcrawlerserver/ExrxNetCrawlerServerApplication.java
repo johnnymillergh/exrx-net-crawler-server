@@ -25,6 +25,7 @@ import java.util.TimeZone;
 @EnableTransactionManagement
 @EnableConfigurationProperties
 public class ExrxNetCrawlerServerApplication {
+    private static final String LINE_SEPARATOR = System.lineSeparator();
     private static ProjectProperty projectProperty;
     private static ServerConfiguration serverConfiguration;
 
@@ -35,20 +36,17 @@ public class ExrxNetCrawlerServerApplication {
     }
 
     public static void main(String[] args) {
-        long startTime = System.currentTimeMillis();
+        var startTime = System.currentTimeMillis();
         SpringApplication.run(ExrxNetCrawlerServerApplication.class, args);
-        long endTime = System.currentTimeMillis();
-        log.info("🍃 Congratulations! 🎉");
+        var endTime = System.currentTimeMillis();
+        log.info("🥳 Congratulations! 🎉");
         log.info("{}@{} started successfully!", projectProperty.getProjectArtifactId(), projectProperty.getVersion());
-        log.info("Current environment: {} ({})",
-                 projectProperty.getEnvironment(),
+        log.info("Current environment: {} ({})", projectProperty.getEnvironment(),
                  projectProperty.getEnvironmentAlias());
-        log.info("Deployment duration: {} seconds ({} ms)",
-                 (endTime - startTime) / 1000,
-                 (endTime - startTime));
-        log.info("Server started at {} (timezone - {}), base URL: {}",
-                 new Date(),
-                 TimeZone.getDefault().getDisplayName(),
-                 serverConfiguration.getBaseUrl());
+        log.info("Deployment duration: {} seconds ({} ms)", (endTime - startTime) / 1000, (endTime - startTime));
+        log.info("App started at {} (timezone - {})", new Date(), TimeZone.getDefault().getDisplayName());
+        log.info("{}  App running at{}  - Local:   http://localhost:{}{}{}  - Network: {}",
+                 LINE_SEPARATOR, LINE_SEPARATOR, serverConfiguration.getServerPort(), projectProperty.getContextPath(),
+                 LINE_SEPARATOR, serverConfiguration.getBaseUrl());
     }
 }

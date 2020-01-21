@@ -1,9 +1,13 @@
 package com.jmsoftware.exrxnetcrawlerserver.equipment.service.impl;
 
+import com.jmsoftware.exrxnetcrawlerserver.common.aspect.ValidateArgument;
+import com.jmsoftware.exrxnetcrawlerserver.equipment.domain.SaveEquipmentPayload;
 import com.jmsoftware.exrxnetcrawlerserver.equipment.mapper.EquipmentMapper;
 import com.jmsoftware.exrxnetcrawlerserver.equipment.service.EquipmentService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+
+import javax.validation.Valid;
 
 /**
  * <h1>EquipmentServiceImpl</h1>
@@ -17,4 +21,10 @@ import org.springframework.stereotype.Service;
 @RequiredArgsConstructor
 public class EquipmentServiceImpl implements EquipmentService {
     private final EquipmentMapper equipmentMapper;
+
+    @Override
+    @ValidateArgument
+    public Integer saveEquipment(@Valid SaveEquipmentPayload payload) {
+        return null;
+    }
 }
