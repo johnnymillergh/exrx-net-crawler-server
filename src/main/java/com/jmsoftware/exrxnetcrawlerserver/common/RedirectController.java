@@ -15,7 +15,7 @@ import java.io.IOException;
 /**
  * <h1>RedirectController</h1>
  * <p>
- * Change description here.
+ * HTTP Redirect Controller
  *
  * @author Johnny Miller (锺俊), email: johnnysviva@outlook.com
  * @date 1/21/20 1:18 PM
