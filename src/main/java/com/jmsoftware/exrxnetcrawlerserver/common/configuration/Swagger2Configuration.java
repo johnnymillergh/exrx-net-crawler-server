@@ -27,6 +27,7 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 @RequiredArgsConstructor
 public class Swagger2Configuration {
     private final ProjectProperty projectProperty;
+    private static final String LINE_SEPARATOR = System.lineSeparator();
 
     @Bean
     public Docket createRestApi() {
@@ -46,10 +47,13 @@ public class Swagger2Configuration {
             return new ApiInfoBuilder()
                     .title(String.format("API for %s@%s (%s)", projectArtifactId, version,
                                          projectProperty.getEnvironmentAlias()))
-                    .description(String.format("%s, environment: %s (%s). %s", projectArtifactId,
+                    .description(String.format("%s %sArtifact ID: %s%sEnvironment: %s (%s)",
+                                               projectProperty.getDescription(),
+                                               LINE_SEPARATOR,
+                                               projectArtifactId,
+                                               LINE_SEPARATOR,
                                                projectProperty.getEnvironment(),
-                                               projectProperty.getEnvironmentAlias(),
-                                               projectProperty.getDescription()))
+                                               projectProperty.getEnvironmentAlias()))
                     .license(license)
                     .version(version)
                     .build();
@@ -58,10 +62,13 @@ public class Swagger2Configuration {
         return new ApiInfoBuilder()
                 .title(String.format("API for %s@%s (%s)", projectArtifactId, version,
                                      projectProperty.getEnvironmentAlias()))
-                .description(String.format("%s, environment: %s (%s). %s", projectArtifactId,
+                .description(String.format("%s %sArtifact ID: %s%sEnvironment: %s (%s)",
+                                           projectProperty.getDescription(),
+                                           LINE_SEPARATOR,
+                                           projectArtifactId,
+                                           LINE_SEPARATOR,
                                            projectProperty.getEnvironment(),
-                                           projectProperty.getEnvironmentAlias(),
-                                           projectProperty.getDescription()))
+                                           projectProperty.getEnvironmentAlias()))
                 .contact(new Contact(String.format("%s, email: %s", developer.getName(), developer.getEmail()),
                                      projectProperty.getUrl(), developer.getEmail()))
                 .license(license)
