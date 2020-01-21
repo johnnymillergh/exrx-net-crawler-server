@@ -1,7 +1,6 @@
 package com.jmsoftware.exrxnetcrawlerserver.common.configuration;
 
 import cn.hutool.core.collection.CollectionUtil;
-import com.jmsoftware.exrxnetcrawlerserver.common.configuration.ProjectProperty;
 import lombok.RequiredArgsConstructor;
 import org.apache.maven.model.Developer;
 import org.springframework.context.annotation.Bean;
@@ -47,7 +46,10 @@ public class Swagger2Configuration {
             return new ApiInfoBuilder()
                     .title(String.format("API for %s@%s (%s)", projectArtifactId, version,
                                          projectProperty.getEnvironmentAlias()))
-                    .description(projectArtifactId + ", environment: " + projectProperty.getEnvironmentAlias())
+                    .description(String.format("%s, environment: %s (%s). %s", projectArtifactId,
+                                               projectProperty.getEnvironment(),
+                                               projectProperty.getEnvironmentAlias(),
+                                               projectProperty.getDescription()))
                     .license(license)
                     .version(version)
                     .build();
@@ -56,8 +58,12 @@ public class Swagger2Configuration {
         return new ApiInfoBuilder()
                 .title(String.format("API for %s@%s (%s)", projectArtifactId, version,
                                      projectProperty.getEnvironmentAlias()))
-                .description(projectArtifactId + ", environment: " + projectProperty.getEnvironmentAlias())
-                .contact(new Contact(developer.getName(), projectProperty.getUrl(), developer.getEmail()))
+                .description(String.format("%s, environment: %s (%s). %s", projectArtifactId,
+                                           projectProperty.getEnvironment(),
+                                           projectProperty.getEnvironmentAlias(),
+                                           projectProperty.getDescription()))
+                .contact(new Contact(String.format("%s, email: %s", developer.getName(), developer.getEmail()),
+                                     projectProperty.getUrl(), developer.getEmail()))
                 .license(license)
                 .version(version)
                 .build();
