@@ -1,6 +1,9 @@
 package com.jmsoftware.exrxnetcrawlerserver.exercise.mapper;
 
+import com.jmsoftware.exrxnetcrawlerserver.exercise.domain.ExerciseRelatedClassificationPo;
 import org.apache.ibatis.annotations.Mapper;
+
+import java.util.List;
 
 /**
  * <h1>ExerciseRelatedClassificationMapper</h1>
@@ -12,4 +15,11 @@ import org.apache.ibatis.annotations.Mapper;
  **/
 @Mapper
 public interface ExerciseRelatedClassificationMapper {
+    /**
+     * Insert exercise related classification integer.
+     *
+     * @param exerciseRelatedClassificationPoList the exercise related classification po list
+     * @return the integer
+     */
+    Integer insertExerciseRelatedClassification(List<ExerciseRelatedClassificationPo> exerciseRelatedClassificationPoList);
 }

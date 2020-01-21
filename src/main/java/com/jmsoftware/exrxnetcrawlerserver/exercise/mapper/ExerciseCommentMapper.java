@@ -1,5 +1,6 @@
 package com.jmsoftware.exrxnetcrawlerserver.exercise.mapper;
 
+import com.jmsoftware.exrxnetcrawlerserver.exercise.domain.ExerciseCommentPo;
 import org.apache.ibatis.annotations.Mapper;
 
 /**
@@ -12,4 +13,11 @@ import org.apache.ibatis.annotations.Mapper;
  **/
 @Mapper
 public interface ExerciseCommentMapper {
+    /**
+     * Insert exercise comment integer.
+     *
+     * @param exerciseCommentPo the exercise comment po
+     * @return the integer
+     */
+    Integer insertExerciseComment(ExerciseCommentPo exerciseCommentPo);
 }

@@ -11,4 +11,11 @@
     <sql id="Base_Column_List">
         id, muscle_id, related_muscle_type
     </sql>
+
+    <insert id="insertExerciserRelatedMuscle">
+        INSERT INTO exercise_related_muscle(muscle_id, related_muscle_type) VALUES
+        <foreach collection="list" item="item" separator=",">
+            (#{item.muscleId}, #{item.relatedMuscleType})
+        </foreach>
+    </insert>
 </mapper>

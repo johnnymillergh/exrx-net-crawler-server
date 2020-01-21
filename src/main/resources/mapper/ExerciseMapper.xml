@@ -13,4 +13,15 @@
     <sql id="Base_Column_List">
         id, `name`, preparation, execution, exercise_gif_path
     </sql>
+
+    <insert id="insertExercise" useGeneratedKeys="true" keyProperty="id">
+        INSERT INTO exercise(name,
+                             preparation,
+                             execution,
+                             exercise_gif_path)
+        VALUES (#{name},
+                #{preparation},
+                #{execution},
+                #{exerciseGifPath})
+    </insert>
 </mapper>

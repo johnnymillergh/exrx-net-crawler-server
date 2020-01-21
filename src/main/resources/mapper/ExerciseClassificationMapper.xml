@@ -11,4 +11,11 @@
     <sql id="Base_Column_List">
         id, `name`, description
     </sql>
+
+    <insert id="insertExerciseClassification">
+        INSERT INTO exercise_classification(name, description) VALUES
+        <foreach collection="list" item="item" separator=",">
+            (#{item.name}, #{item.description})
+        </foreach>
+    </insert>
 </mapper>

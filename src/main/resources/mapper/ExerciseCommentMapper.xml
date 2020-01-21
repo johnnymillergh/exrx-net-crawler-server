@@ -11,4 +11,9 @@
     <sql id="Base_Column_List">
         id, exercise_id, `comment`
     </sql>
+
+    <insert id="insertExerciseComment">
+        INSERT INTO exercise_comment(exercise_id, comment)
+        VALUES (#{exerciseId}, #{comment})
+    </insert>
 </mapper>
