@@ -35,7 +35,7 @@ public class RedirectController {
     @GetMapping("/")
     @ApiOperation(value = "/", notes = "Home page")
     public void handleHomeRequest(HttpServletResponse response) throws IOException {
-        // Redirect to Bootstrap Swagger API documentation
+        // Redirect to home page
         response.sendRedirect(projectProperty.getContextPath() + "/static/home.html");
     }
 
@@ -44,5 +44,12 @@ public class RedirectController {
     public void handleDocRequest(HttpServletResponse response) throws IOException {
         // Redirect to Bootstrap Swagger API documentation
         response.sendRedirect(projectProperty.getContextPath() + "/doc.html?cache=1&lang=en");
+    }
+
+    @GetMapping("/webjars/bycdao-ui/images/api.ico")
+    @ApiOperation(value = "/webjars/bycdao-ui/images/api.ico", notes = "Favicon redirection")
+    public void handleFaviconRequest(HttpServletResponse response) throws IOException {
+        // Redirect to a customized favicon
+        response.sendRedirect(projectProperty.getContextPath() + "/static/icon/favicon-96x96.png");
     }
 }
