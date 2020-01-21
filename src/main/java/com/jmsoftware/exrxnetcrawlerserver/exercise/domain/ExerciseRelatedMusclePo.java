@@ -30,11 +30,8 @@ public class ExerciseRelatedMusclePo {
      * <li>5 - Stabilizer</li>
      * <li>6 - Dynamic Stabilizer</li>
      * <li>7 - Antagonist Stabilizer</li>
-     *
      * </ul>
-     * <p>'https://exrx.net/Kinesiology/Glossary#MuscleMovClass' target='_blank' class='url'>https://exrx
-     * .net/Kinesiology/Glossary#MuscleMovClass</a>
-     * </p>
+     * <a href='https://exrx.net/Kinesiology/Glossary#MuscleMovClass'>Muscle movement classification</a>
      *
      * @see ExerciseRelatedMuscleType
      */
