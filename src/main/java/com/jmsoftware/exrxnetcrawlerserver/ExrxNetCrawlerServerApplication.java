@@ -28,7 +28,6 @@ public class ExrxNetCrawlerServerApplication {
     private static ProjectProperty projectProperty;
     private static ServerConfiguration serverConfiguration;
 
-
     public ExrxNetCrawlerServerApplication(ProjectProperty projectProperty,
                                            ServerConfiguration serverConfiguration) {
         ExrxNetCrawlerServerApplication.projectProperty = projectProperty;
