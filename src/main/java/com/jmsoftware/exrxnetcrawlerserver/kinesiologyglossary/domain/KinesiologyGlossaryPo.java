@@ -3,7 +3,7 @@ package com.jmsoftware.exrxnetcrawlerserver.kinesiologyglossary.domain;
 import lombok.Data;
 
 /**
- * <h1>KinesiologyGlossary</h1>
+ * <h1>KinesiologyGlossaryPo</h1>
  * <p>
  * Change description here.
  *
@@ -11,7 +11,7 @@ import lombok.Data;
  * @date 1/20/20 5:21 PM
  **/
 @Data
-public class KinesiologyGlossary {
+public class KinesiologyGlossaryPo {
     /**
      * The ID of kinesiology glossary.
      */

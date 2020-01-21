@@ -1,6 +1,9 @@
 package com.jmsoftware.exrxnetcrawlerserver.kinesiologyglossary.mapper;
 
+import com.jmsoftware.exrxnetcrawlerserver.kinesiologyglossary.domain.KinesiologyGlossaryPo;
 import org.apache.ibatis.annotations.Mapper;
+
+import java.util.List;
 
 /**
  * <h1>KinesiologyGlossaryMapper</h1>
@@ -12,4 +15,11 @@ import org.apache.ibatis.annotations.Mapper;
  **/
 @Mapper
 public interface KinesiologyGlossaryMapper {
+    /**
+     * Insert kinesiology glossary integer.
+     *
+     * @param kinesiologyGlossaryPoList the kinesiology glossary po list
+     * @return the integer
+     */
+    Integer insertKinesiologyGlossary(List<KinesiologyGlossaryPo> kinesiologyGlossaryPoList);
 }
