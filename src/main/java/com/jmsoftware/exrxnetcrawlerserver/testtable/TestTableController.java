@@ -1,5 +1,6 @@
 package com.jmsoftware.exrxnetcrawlerserver.testtable;
 
+import cn.hutool.core.collection.CollectionUtil;
 import com.jmsoftware.exrxnetcrawlerserver.common.ResponseBodyBean;
 import com.jmsoftware.exrxnetcrawlerserver.testtable.domain.GetByIdPayload;
 import com.jmsoftware.exrxnetcrawlerserver.testtable.domain.PictureFile;
@@ -9,6 +10,10 @@ import com.jmsoftware.exrxnetcrawlerserver.testtable.service.TestTableService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import lombok.RequiredArgsConstructor;
+import org.springframework.core.io.Resource;
+import org.springframework.core.io.support.ResourceRegion;
+import org.springframework.http.*;
+import org.springframework.util.MimeType;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -31,6 +36,7 @@ import java.util.List;
 public class TestTableController {
     private final TestTableService testTableService;
     private final PictureFileContentStoreService pictureFileContentStoreService;
+    private final static long CHUNK_SIZE = 1000000L;
 
     @GetMapping("/get-by-id")
     @ApiOperation(value = "/get-by-id", notes = "Get by id")
@@ -54,5 +60,29 @@ public class TestTableController {
         pictureFile.setMimeType(multipartFile.getContentType());
         pictureFile = pictureFileContentStoreService.setContent(pictureFile, multipartFile.getInputStream());
         return ResponseBodyBean.ofData(pictureFile);
+    }
+
+    @GetMapping("/test-videos/{sid}")
+    public ResponseEntity<ResourceRegion> getVideo(@PathVariable String sid, @RequestHeader HttpHeaders headers) throws IOException {
+        var video = pictureFileContentStoreService.getResource(sid);
+        var region = resourceRegion(video, headers);
+        return ResponseEntity.status(HttpStatus.PARTIAL_CONTENT)
+                .contentType(MediaTypeFactory.getMediaType(video).orElse(MediaType.asMediaType(MimeType.valueOf(
+                        "video/mp4"))))
+                .body(region);
+    }
+
+    private ResourceRegion resourceRegion(Resource video, HttpHeaders headers) throws IOException {
+        var contentLength = video.contentLength();
+        var range = headers.getRange();
+        if (CollectionUtil.isNotEmpty(range)) {
+            var firstRange = range.get(0);
+            var start = firstRange.getRangeStart(contentLength);
+            var end = firstRange.getRangeEnd(contentLength);
+            var rangeLength = Long.min(CHUNK_SIZE, end - start + 1);
+            return new ResourceRegion(video, start, rangeLength);
+        }
+        var rangeLength = Long.min(CHUNK_SIZE, contentLength);
+        return new ResourceRegion(video, 0, rangeLength);
     }
 }
