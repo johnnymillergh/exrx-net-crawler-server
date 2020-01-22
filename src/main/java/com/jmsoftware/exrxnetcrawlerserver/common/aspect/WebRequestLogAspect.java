@@ -44,7 +44,7 @@ public class WebRequestLogAspect {
      * pointcut expression examples</a>
      */
     @Pointcut("@annotation(org.springframework.web.bind.annotation.GetMapping)" +
-            "|| @annotation(org.springframework.web.bind.annotation.PostMapping)")
+              "|| @annotation(org.springframework.web.bind.annotation.PostMapping)")
     public void requestLogPointcut() {
     }
 
@@ -61,13 +61,13 @@ public class WebRequestLogAspect {
         assert attributes != null;
         HttpServletRequest request = attributes.getRequest();
         log.info("============ WEB REQUEST LOG START ============");
-        log.info("URL            : {}", request.getRequestURL().toString());
-        log.info("HTTP Method    : {}", request.getMethod());
-        log.info("Client IP:Port : {}", RequestUtil.getRequestIpAndPort(request));
-        log.info("Class Method   : {}#{}",
+        log.info("URL                : {}", request.getRequestURL().toString());
+        log.info("HTTP Method        : {}", request.getMethod());
+        log.info("Client IP:Port     : {}", RequestUtil.getRequestIpAndPort(request));
+        log.info("Class Method       : {}#{}",
                  joinPoint.getSignature().getDeclaringTypeName(),
                  joinPoint.getSignature().getName());
-        log.info("Request Params :{}{}", LINE_SEPARATOR, JSONUtil.toJsonPrettyStr(joinPoint.getArgs()));
+        log.info("Request Params     :{}{}", LINE_SEPARATOR, JSONUtil.toJsonPrettyStr(joinPoint.getArgs()));
     }
 
     /**
@@ -84,11 +84,12 @@ public class WebRequestLogAspect {
         Object result = proceedingJoinPoint.proceed();
         long elapsedTime = System.currentTimeMillis() - startTime;
         try {
-            log.info("Response       :{}{}", LINE_SEPARATOR, JSONUtil.formatJsonStr(mapper.writeValueAsString(result)));
+            log.info("Response           :{}{}", LINE_SEPARATOR,
+                     JSONUtil.formatJsonStr(mapper.writeValueAsString(result)));
         } catch (JsonProcessingException e) {
-            log.error("Cannot convert object to JSON string. Exception message: {}", e.getMessage());
+            log.info("Response (non-JSON): {}", result);
         }
-        log.info("Elapsed time   : {} s ({} ms)",
+        log.info("Elapsed time       : {} s ({} ms)",
                  NumberUtil.decimalFormat("0.00", elapsedTime / 1000D),
                  elapsedTime);
         return result;
@@ -111,8 +112,8 @@ public class WebRequestLogAspect {
      */
     @AfterThrowing(pointcut = "requestLogPointcut()", throwing = "e")
     public void afterThrowingException(JoinPoint joinPoint, Exception e) {
-        log.info("Signature      : {}", joinPoint.getSignature().toShortString());
-        log.info("Exception Info : {}, message: {}", e.toString(), e.getMessage());
+        log.info("Signature          : {}", joinPoint.getSignature().toShortString());
+        log.info("Exception Info     : {}, message: {}", e.toString(), e.getMessage());
         log.info("====== WEB REQUEST LOG END WITH EXCEPTION =====");
     }
 }

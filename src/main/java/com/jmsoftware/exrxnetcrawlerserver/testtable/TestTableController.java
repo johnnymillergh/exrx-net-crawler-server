@@ -11,6 +11,7 @@ import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import lombok.RequiredArgsConstructor;
 import org.springframework.core.io.Resource;
+import org.springframework.core.io.ResourceLoader;
 import org.springframework.core.io.support.ResourceRegion;
 import org.springframework.http.*;
 import org.springframework.util.MimeType;
@@ -36,6 +37,7 @@ import java.util.List;
 public class TestTableController {
     private final TestTableService testTableService;
     private final PictureFileContentStoreService pictureFileContentStoreService;
+    private final ResourceLoader resourceLoader;
     private final static long CHUNK_SIZE = 1000000L;
 
     @GetMapping("/get-by-id")
@@ -65,6 +67,16 @@ public class TestTableController {
     @GetMapping("/test-videos/{sid}")
     public ResponseEntity<ResourceRegion> getVideo(@PathVariable String sid, @RequestHeader HttpHeaders headers) throws IOException {
         var video = pictureFileContentStoreService.getResource(sid);
+        var region = resourceRegion(video, headers);
+        return ResponseEntity.status(HttpStatus.PARTIAL_CONTENT)
+                .contentType(MediaTypeFactory.getMediaType(video).orElse(MediaType.asMediaType(MimeType.valueOf(
+                        "video/mp4"))))
+                .body(region);
+    }
+
+    @GetMapping("/demo-video")
+    public ResponseEntity<ResourceRegion> demoVideo(@RequestHeader HttpHeaders headers) throws IOException {
+        var video = resourceLoader.getResource("classpath:/static/video/fish.mp4");
         var region = resourceRegion(video, headers);
         return ResponseEntity.status(HttpStatus.PARTIAL_CONTENT)
                 .contentType(MediaTypeFactory.getMediaType(video).orElse(MediaType.asMediaType(MimeType.valueOf(
