@@ -65,6 +65,7 @@ public class TestTableController {
     }
 
     @GetMapping("/test-videos/{sid}")
+    @ApiOperation(value = "/test-videos", notes = "Test videos")
     public ResponseEntity<ResourceRegion> getVideo(@PathVariable String sid, @RequestHeader HttpHeaders headers) throws IOException {
         var video = pictureFileContentStoreService.getResource(sid);
         var region = resourceRegion(video, headers);
@@ -75,6 +76,7 @@ public class TestTableController {
     }
 
     @GetMapping("/demo-video")
+    @ApiOperation(value = "/demo-video", notes = "Demo video")
     public ResponseEntity<ResourceRegion> demoVideo(@RequestHeader HttpHeaders headers) throws IOException {
         var video = resourceLoader.getResource("classpath:/static/video/fish.mp4");
         var region = resourceRegion(video, headers);
