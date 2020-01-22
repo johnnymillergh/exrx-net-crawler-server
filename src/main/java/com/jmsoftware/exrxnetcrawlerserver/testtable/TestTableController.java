@@ -2,7 +2,9 @@ package com.jmsoftware.exrxnetcrawlerserver.testtable;
 
 import com.jmsoftware.exrxnetcrawlerserver.common.ResponseBodyBean;
 import com.jmsoftware.exrxnetcrawlerserver.testtable.domain.GetByIdPayload;
+import com.jmsoftware.exrxnetcrawlerserver.testtable.domain.PictureFile;
 import com.jmsoftware.exrxnetcrawlerserver.testtable.domain.TestTablePo;
+import com.jmsoftware.exrxnetcrawlerserver.testtable.service.PictureFileContentStoreService;
 import com.jmsoftware.exrxnetcrawlerserver.testtable.service.TestTableService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -28,6 +30,7 @@ import java.util.List;
 @Api(tags = {"Test Table Controller"})
 public class TestTableController {
     private final TestTableService testTableService;
+    private final PictureFileContentStoreService pictureFileContentStoreService;
 
     @GetMapping("/get-by-id")
     @ApiOperation(value = "/get-by-id", notes = "Get by id")
@@ -42,5 +45,14 @@ public class TestTableController {
         testTableService.testUpload(muscleImageList);
         return ResponseBodyBean.ofDataAndMessage(200,
                                                  "Succeeded to update file(s). File count: " + muscleImageList.size());
+    }
+
+    @PostMapping("/test-spring-content")
+    @ApiOperation(value = "/test-spring-content", notes = "Test spring content")
+    public ResponseBodyBean<PictureFile> testSpringContent(@RequestPart MultipartFile multipartFile) throws IOException {
+        var pictureFile = new PictureFile();
+        pictureFile.setMimeType(multipartFile.getContentType());
+        pictureFile = pictureFileContentStoreService.setContent(pictureFile, multipartFile.getInputStream());
+        return ResponseBodyBean.ofData(pictureFile);
     }
 }
