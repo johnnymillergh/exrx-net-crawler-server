@@ -32,11 +32,11 @@ public class RedirectController {
         log.info("URL redirect service initialized.");
     }
 
-    @GetMapping("/")
-    @ApiOperation(value = "/", notes = "Home page")
+    @GetMapping("/home")
+    @ApiOperation(value = "/home", notes = "Home page")
     public void handleHomeRequest(HttpServletResponse response) throws IOException {
         // Redirect to home page
-        response.sendRedirect(projectProperty.getContextPath() + "/static/home.html");
+        response.sendRedirect(projectProperty.getContextPath() + "/");
     }
 
     @GetMapping("/doc")

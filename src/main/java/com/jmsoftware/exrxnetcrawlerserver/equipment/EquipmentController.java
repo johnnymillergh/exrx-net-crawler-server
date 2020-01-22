@@ -11,6 +11,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.validation.Valid;
+
 /**
  * <h1>EquipmentController</h1>
  * <p>
@@ -28,7 +30,7 @@ public class EquipmentController {
 
     @PostMapping("/save-equipment")
     @ApiOperation(value = "/save-equipment", notes = "Save equipment")
-    public ResponseBodyBean<Integer> saveEquipment(@RequestBody SaveEquipmentPayload payload) {
+    public ResponseBodyBean<Integer> saveEquipment(@Valid @RequestBody SaveEquipmentPayload payload) {
         var affectedRows = equipmentService.saveEquipment(payload);
         return ResponseBodyBean.ofDataAndMessage(affectedRows, "Saved equipment. Affected rows: " + affectedRows);
     }
