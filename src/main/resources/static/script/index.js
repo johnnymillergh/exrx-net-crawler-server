@@ -42,8 +42,8 @@ const vm = new Vue({
         },
         handleClickSwaggerApiDocumentation: function () {
             const currentUrl = window.location.href;
-            const split = currentUrl.split('/static/home.html');
-            window.location.href = `${split[0]}/doc.html?cache=1&lang=en`;
+            const split = currentUrl.split('/');
+            window.location.href = `${split[0]}//${split[2]}/${split[3]}/doc`;
         }
     }
 });
