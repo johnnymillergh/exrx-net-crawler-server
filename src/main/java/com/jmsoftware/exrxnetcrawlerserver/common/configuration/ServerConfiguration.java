@@ -1,6 +1,5 @@
 package com.jmsoftware.exrxnetcrawlerserver.common.configuration;
 
-import com.jmsoftware.exrxnetcrawlerserver.common.configuration.ProjectProperty;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -17,7 +16,9 @@ import java.net.URL;
 import java.util.Enumeration;
 
 /**
- * Description: ServerConfiguration, change description here.
+ * <h1>ServerConfiguration</h1>
+ * <p>
+ * Change description here.
  *
  * @author Johnny Miller (鍾俊), email: johnnysviva@outlook.com
  * @date 2019-04-26 16:02

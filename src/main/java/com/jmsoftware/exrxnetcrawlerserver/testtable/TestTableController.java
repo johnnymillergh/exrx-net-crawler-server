@@ -86,6 +86,18 @@ public class TestTableController {
                 .body(region);
     }
 
+
+    /**
+     * Resource region resource region.
+     *
+     * @param video   the video
+     * @param headers the headers
+     * @return the resource region
+     * @throws IOException the io exception
+     * @see
+     * <a href='https://melgenek.github.io/spring-video-service'>Building a video service using Spring Framework</a>
+     * @see <a href='https://github.com/melgenek/spring-video-service'>GitHub: spring-video-service</a>
+     */
     private ResourceRegion resourceRegion(Resource video, HttpHeaders headers) throws IOException {
         var contentLength = video.contentLength();
         var range = headers.getRange();

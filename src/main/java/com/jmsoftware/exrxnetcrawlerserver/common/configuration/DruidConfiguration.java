@@ -13,7 +13,9 @@ import org.springframework.context.annotation.Configuration;
 import javax.sql.DataSource;
 
 /**
- * Description: DruidConfiguration, change description here.
+ * <h1>DruidConfiguration</h1>
+ * <p>
+ * Druid Configuration
  * <a href="http://localhost:8080/springboottemplate/druid/index.html">Click me to view Druid Monitor</a>
  *
  * @author Johnny Miller (鍾俊), email: johnnysviva@outlook.com

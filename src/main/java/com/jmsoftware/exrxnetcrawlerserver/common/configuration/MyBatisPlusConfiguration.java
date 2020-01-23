@@ -6,7 +6,9 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 /**
- * Description: MyBatisPlusConfiguration, change description here.
+ * <h1>MyBatisPlusConfiguration</h1>
+ * <p>
+ * Change description here.
  *
  * @author Johnny Miller (鍾俊), email: johnnysviva@outlook.com
  * @date 2019-05-02 11:57

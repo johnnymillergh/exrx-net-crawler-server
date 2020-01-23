@@ -15,8 +15,9 @@ import springfox.documentation.spring.web.plugins.Docket;
 import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 /**
- * <p>Description: Swagger 2 Config.</p>
- * API Documentation:
+ * <h1>Swagger2Configuration</h1>
+ * <p>
+ * Swagger 2 Configuration
  * <a href="http://192.168.1.4:8080/jm-spring-boot-template-dev/swagger-ui.html">Click me to view<a/>
  *
  * @author Johnny Miller (鍾俊), email: johnnysviva@outlook.com
