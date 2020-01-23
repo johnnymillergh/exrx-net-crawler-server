@@ -13,12 +13,13 @@ import java.util.TimeZone;
 
 
 /**
- * ExrxNetCrawlerServerApplication
+ * <h1>ExrxNetCrawlerServerApplication</h1>
+ * <p>
+ * Application entrance.
  *
  * @author Johnny Miller (锺俊), email: johnnysviva@outlook.com
  * @date 1/13/20 10:05 AM
- * @see
- * <a href="http://localhost:8080/exrx-net-crawler-server-dev_loc/doc.html?lang=en&cache=1">Click me to view API documentation page</a>
+ * @see <a href="http://localhost:8080/exrx-net-crawler-server-dev_loc/doc">Click me to view API Documentation</a>
  */
 @Slf4j
 @SpringBootApplication
