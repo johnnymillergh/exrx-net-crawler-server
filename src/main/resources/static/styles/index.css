@@ -202,6 +202,6 @@ button:hover {
 }
 
 .go-to {
-    display: block;
-    margin: 0 auto 8px;
+    display: inline-block;
+    margin-bottom: 6px;
 }

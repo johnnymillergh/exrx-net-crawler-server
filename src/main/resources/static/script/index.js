@@ -44,6 +44,11 @@ const vm = new Vue({
             const currentUrl = window.location.href;
             const split = currentUrl.split('/');
             window.location.href = `${split[0]}//${split[2]}/${split[3]}/doc`;
+        },
+        handleClickVideoDemo: function () {
+            const currentUrl = window.location.href;
+            const split = currentUrl.split('/');
+            window.location.href = `${split[0]}//${split[2]}/${split[3]}/video.html`;
         }
     }
 });
