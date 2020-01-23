@@ -86,7 +86,6 @@ public class TestTableController {
                 .body(region);
     }
 
-
     /**
      * Resource region resource region.
      *
