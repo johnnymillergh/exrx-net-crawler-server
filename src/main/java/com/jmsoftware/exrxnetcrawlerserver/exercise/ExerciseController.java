@@ -35,6 +35,7 @@ public class ExerciseController {
     }
 
     @PostMapping("/save-exercise-classification")
+    @ApiOperation(value = "/save-exercise-classification", notes = "Save exercise classification")
     public ResponseBodyBean<Integer> saveExerciseClassification(@Valid @RequestBody SaveExerciseClassificationPayload payload) {
         var affectedRows = exerciseService.saveExerciseClassification(payload);
         return ResponseBodyBean.ofDataAndMessage(affectedRows,
