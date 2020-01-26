@@ -1,15 +1,13 @@
 package com.jmsoftware.exrxnetcrawlerserver.exercise;
 
 import com.jmsoftware.exrxnetcrawlerserver.common.ResponseBodyBean;
+import com.jmsoftware.exrxnetcrawlerserver.exercise.domain.SaveExerciseClassificationPayload;
 import com.jmsoftware.exrxnetcrawlerserver.exercise.domain.SaveExercisePayload;
 import com.jmsoftware.exrxnetcrawlerserver.exercise.service.ExerciseService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import lombok.RequiredArgsConstructor;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestPart;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.validation.Valid;
@@ -34,5 +32,12 @@ public class ExerciseController {
     public ResponseBodyBean<Integer> saveExercise(@RequestPart MultipartFile exerciseGif,
                                                   @Valid SaveExercisePayload payload) {
         return ResponseBodyBean.ofMessage("Saved exercise.");
+    }
+
+    @PostMapping("/save-exercise-classification")
+    public ResponseBodyBean<Integer> saveExerciseClassification(@Valid @RequestBody SaveExerciseClassificationPayload payload) {
+        var affectedRows = exerciseService.saveExerciseClassification(payload);
+        return ResponseBodyBean.ofDataAndMessage(affectedRows,
+                                                 "Saved exercise classification. Affected rows: " + affectedRows);
     }
 }
