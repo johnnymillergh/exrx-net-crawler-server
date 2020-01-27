@@ -27,4 +27,7 @@ public class SaveExercisePayload {
     private String execution;
     @NotEmpty
     private String comments;
+    @Valid
+    @NotEmpty
+    private List<ExerciseRelatedMusclePayload> exerciseRelatedMusclePayloadList;
 }

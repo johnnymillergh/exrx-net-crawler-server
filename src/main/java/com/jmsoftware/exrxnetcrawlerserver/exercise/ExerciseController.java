@@ -32,7 +32,7 @@ public class ExerciseController {
 
     @PostMapping("/save-exercise")
     @ApiOperation(value = "/save-equipment", notes = "Save equipment")
-    public ResponseBodyBean<Integer> saveExercise(@Valid @RequestBody SaveExercisePayload payload) {
+    public ResponseBodyBean<Long> saveExercise(@Valid @RequestBody SaveExercisePayload payload) {
         log.info("payload={}", payload);
         return ResponseBodyBean.ofMessage("Saved exercise.");
     }
