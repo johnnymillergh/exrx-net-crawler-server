@@ -73,8 +73,8 @@ DROP TABLE IF EXISTS `exercise`;
 CREATE TABLE `exercise` (
   `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT COMMENT 'The ID of exercise.',
   `name` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL COMMENT 'The name of exercise.',
-  `preparation` varchar(500) COLLATE utf8mb4_unicode_ci NOT NULL COMMENT 'Exercise preparation description.',
-  `execution` varchar(500) COLLATE utf8mb4_unicode_ci NOT NULL COMMENT 'Exercise execution description.',
+  `preparation` varchar(800) COLLATE utf8mb4_unicode_ci NOT NULL COMMENT 'Exercise preparation description.',
+  `execution` varchar(800) COLLATE utf8mb4_unicode_ci NOT NULL COMMENT 'Exercise execution description.',
   `exercise_gif_path` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL COMMENT 'Exercise GIF image path.',
   PRIMARY KEY (`id`),
   UNIQUE KEY `exercise_name_uindex` (`name`)
@@ -327,4 +327,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-01-21 10:44:00
+-- Dump completed on 2020-01-27 22:32:35

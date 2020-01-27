@@ -20,8 +20,8 @@ CREATE TABLE exercise (
     id                bigint UNSIGNED AUTO_INCREMENT COMMENT 'The ID of exercise.'
         PRIMARY KEY,
     name              varchar(100) NOT NULL COMMENT 'The name of exercise.',
-    preparation       varchar(500) NOT NULL COMMENT 'Exercise preparation description.',
-    execution         varchar(500) NOT NULL COMMENT 'Exercise execution description.',
+    preparation       varchar(800) NOT NULL COMMENT 'Exercise preparation description.',
+    execution         varchar(800) NOT NULL COMMENT 'Exercise execution description.',
     exercise_gif_path varchar(100) NULL COMMENT 'Exercise GIF image path.',
     CONSTRAINT exercise_name_uindex
         UNIQUE (name)
