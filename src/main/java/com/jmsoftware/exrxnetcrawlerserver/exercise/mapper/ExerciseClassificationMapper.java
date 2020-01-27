@@ -14,7 +14,7 @@ import java.util.List;
  * @date 1/20/20 4:14 PM
  **/
 @Mapper
-public interface ExerciseClassificationMapper{
+public interface ExerciseClassificationMapper {
     /**
      * Insert exercise classification integer.
      *
@@ -22,4 +22,12 @@ public interface ExerciseClassificationMapper{
      * @return the integer
      */
     Integer insertExerciseClassification(List<ExerciseClassificationPo> exerciseClassificationPoList);
+
+    /**
+     * Select by exercise classification name exercise classification po.
+     *
+     * @param name the name
+     * @return the exercise classification po
+     */
+    ExerciseClassificationPo selectByExerciseClassificationName(String name);
 }

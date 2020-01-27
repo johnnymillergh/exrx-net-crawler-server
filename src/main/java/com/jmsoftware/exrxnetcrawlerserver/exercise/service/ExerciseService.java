@@ -1,6 +1,7 @@
 package com.jmsoftware.exrxnetcrawlerserver.exercise.service;
 
 import com.jmsoftware.exrxnetcrawlerserver.exercise.domain.SaveExerciseClassificationPayload;
+import com.jmsoftware.exrxnetcrawlerserver.exercise.domain.SaveExercisePayload;
 
 /**
  * <h1>ExerciseService</h1>
@@ -18,4 +19,12 @@ public interface ExerciseService {
      * @return the integer
      */
     Integer saveExerciseClassification(SaveExerciseClassificationPayload payload);
+
+    /**
+     * Save exercise long.
+     *
+     * @param payload the payload
+     * @return the long
+     */
+    Long saveExercise(SaveExercisePayload payload);
 }

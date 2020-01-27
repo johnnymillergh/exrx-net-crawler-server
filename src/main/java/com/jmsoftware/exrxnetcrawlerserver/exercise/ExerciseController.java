@@ -33,8 +33,10 @@ public class ExerciseController {
     @PostMapping("/save-exercise")
     @ApiOperation(value = "/save-equipment", notes = "Save equipment")
     public ResponseBodyBean<Long> saveExercise(@Valid @RequestBody SaveExercisePayload payload) {
-        log.info("payload={}", payload);
-        return ResponseBodyBean.ofMessage("Saved exercise.");
+        var exerciseId = exerciseService.saveExercise(payload);
+        log.info("Saved exercise info. exerciseId = {}", exerciseId);
+        return ResponseBodyBean.ofDataAndMessage(exerciseId, String.format("Saved exercise info. exerciseId = %d",
+                                                                           exerciseId));
     }
 
     @PostMapping("/save-exercise-gif")

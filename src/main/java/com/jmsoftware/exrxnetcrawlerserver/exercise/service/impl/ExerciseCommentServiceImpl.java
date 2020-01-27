@@ -1,6 +1,10 @@
 package com.jmsoftware.exrxnetcrawlerserver.exercise.service.impl;
 
+import com.baomidou.mybatisplus.core.toolkit.StringUtils;
+import com.jmsoftware.exrxnetcrawlerserver.exercise.domain.ExerciseCommentPo;
+import com.jmsoftware.exrxnetcrawlerserver.exercise.mapper.ExerciseCommentMapper;
 import com.jmsoftware.exrxnetcrawlerserver.exercise.service.ExerciseCommentService;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 /**
@@ -12,5 +16,15 @@ import org.springframework.stereotype.Service;
  * @date 1/20/20 4:43 PM
  **/
 @Service
+@RequiredArgsConstructor
 public class ExerciseCommentServiceImpl implements ExerciseCommentService {
+    private final ExerciseCommentMapper exerciseCommentMapper;
+
+    @Override
+    public Integer saveExerciseComment(ExerciseCommentPo exerciseCommentPo) {
+        if (StringUtils.checkValNull(exerciseCommentPo.getComment())) {
+            return 0;
+        }
+        return exerciseCommentMapper.insertExerciseComment(exerciseCommentPo);
+    }
 }

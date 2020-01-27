@@ -2,9 +2,10 @@ package com.jmsoftware.exrxnetcrawlerserver.muscle.service.impl;
 
 import cn.hutool.core.bean.BeanUtil;
 import cn.hutool.core.collection.CollectionUtil;
-import com.jmsoftware.exrxnetcrawlerserver.common.util.CaseConverter;
+import com.baomidou.mybatisplus.core.toolkit.StringUtils;
 import com.jmsoftware.exrxnetcrawlerserver.common.SftpService;
 import com.jmsoftware.exrxnetcrawlerserver.common.SftpSubDirectory;
+import com.jmsoftware.exrxnetcrawlerserver.common.util.CaseConverter;
 import com.jmsoftware.exrxnetcrawlerserver.muscle.domain.*;
 import com.jmsoftware.exrxnetcrawlerserver.muscle.mapper.MuscleMapper;
 import com.jmsoftware.exrxnetcrawlerserver.muscle.service.MuscleImageService;
@@ -58,7 +59,7 @@ public class MuscleServiceImpl implements MuscleService {
     @Override
     @Transactional(rollbackFor = Throwable.class)
     public void updateMuscleDetails(List<MultipartFile> muscleImageList, UpdateMuscleDetailsPayload payload) throws IOException {
-        var optionalMusclePo = Optional.of(muscleMapper.selectByName(payload.getName()));
+        var optionalMusclePo = Optional.of(this.getMuscleByName(payload.getName()));
         var musclePo = optionalMusclePo.get();
         if (CollectionUtil.isNotEmpty(payload.getOtherNames())) {
             musclePo.setOtherNames(CollectionUtil.join(payload.getOtherNames(), ","));
@@ -69,7 +70,7 @@ public class MuscleServiceImpl implements MuscleService {
         if (CollectionUtil.isNotEmpty(payload.getRelatedMuscleNameList())) {
             payload.getRelatedMuscleNameList().forEach(item -> {
                 var relatedMusclePo = new RelatedMusclePo();
-                var optionalRelatedMusclePo = Optional.ofNullable(muscleMapper.selectByName(item));
+                var optionalRelatedMusclePo = Optional.ofNullable(this.getMuscleByName(item));
                 if (optionalRelatedMusclePo.isEmpty()) {
                     log.warn("The related muscle not found! Muscle name: {}, updateMuscleDetailsPayload:{}", item,
                              payload);
@@ -99,5 +100,13 @@ public class MuscleServiceImpl implements MuscleService {
             var affectedRows = muscleImageService.saveMuscleImage(muscleImagePo);
             log.info("Saved {} muscle image. muscleImage: {}", affectedRows, muscleImagePo);
         }
+    }
+
+    @Override
+    public MusclePo getMuscleByName(String name) {
+        if (StringUtils.checkValNull(name)) {
+            return null;
+        }
+        return muscleMapper.selectByName(name);
     }
 }

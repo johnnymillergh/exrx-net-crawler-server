@@ -18,4 +18,11 @@
             (#{item.name}, #{item.description})
         </foreach>
     </insert>
+
+    <select id="selectByExerciseClassificationName" resultMap="BaseResultMap">
+        SELECT ec.id,
+               ec.name
+        FROM exercise_classification ec
+        WHERE ec.name = #{name}
+    </select>
 </mapper>

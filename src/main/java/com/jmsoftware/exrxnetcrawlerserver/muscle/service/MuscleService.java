@@ -1,6 +1,7 @@
 package com.jmsoftware.exrxnetcrawlerserver.muscle.service;
 
 import com.jmsoftware.exrxnetcrawlerserver.muscle.domain.MusclePayload;
+import com.jmsoftware.exrxnetcrawlerserver.muscle.domain.MusclePo;
 import com.jmsoftware.exrxnetcrawlerserver.muscle.domain.UpdateMuscleDetailsPayload;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -29,6 +30,15 @@ public interface MuscleService {
      *
      * @param muscleImageList the muscle image list
      * @param payload         the payload
+     * @throws IOException the io exception
      */
     void updateMuscleDetails(List<MultipartFile> muscleImageList, UpdateMuscleDetailsPayload payload) throws IOException;
+
+    /**
+     * Gets muscle by name.
+     *
+     * @param name the name
+     * @return the muscle by name
+     */
+    MusclePo getMuscleByName(String name);
 }
