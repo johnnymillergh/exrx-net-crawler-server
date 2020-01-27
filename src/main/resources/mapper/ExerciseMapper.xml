@@ -24,4 +24,22 @@
                 #{execution},
                 #{exerciseGifPath})
     </insert>
+
+    <select id="selectById" resultMap="BaseResultMap">
+        SELECT e.id,
+               e.name,
+               e.exercise_gif_path
+        FROM exercise e
+        WHERE e.id = #{id}
+    </select>
+
+    <update id="updateExerciseGifPathById">
+        UPDATE exercise
+        <set>
+            <if test="exerciseGifPath != null and exerciseGifPath != ''">
+                exercise_gif_path = #{exerciseGifPath}
+            </if>
+        </set>
+        WHERE id = #{id}
+    </update>
 </mapper>

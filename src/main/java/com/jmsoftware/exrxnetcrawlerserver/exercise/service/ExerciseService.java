@@ -1,7 +1,11 @@
 package com.jmsoftware.exrxnetcrawlerserver.exercise.service;
 
+import com.jmsoftware.exrxnetcrawlerserver.exercise.domain.ExercisePo;
 import com.jmsoftware.exrxnetcrawlerserver.exercise.domain.SaveExerciseClassificationPayload;
 import com.jmsoftware.exrxnetcrawlerserver.exercise.domain.SaveExercisePayload;
+import org.springframework.web.multipart.MultipartFile;
+
+import java.io.IOException;
 
 /**
  * <h1>ExerciseService</h1>
@@ -27,4 +31,30 @@ public interface ExerciseService {
      * @return the long
      */
     Long saveExercise(SaveExercisePayload payload);
+
+    /**
+     * Gets exercise by id.
+     *
+     * @param id the id
+     * @return the exercise by id
+     */
+    ExercisePo getExerciseById(Long id);
+
+    /**
+     * Update exercise gif integer.
+     *
+     * @param exercisePo the exercise po
+     * @return the integer
+     */
+    Integer updateExerciseGif(ExercisePo exercisePo);
+
+    /**
+     * Save exercise gif integer.
+     *
+     * @param exerciseId  the exercise id
+     * @param exerciseGif the exercise gif
+     * @return the integer
+     * @throws IOException the io exception
+     */
+    Integer saveExerciseGif(Long exerciseId, MultipartFile exerciseGif) throws IOException;
 }

@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.validation.Valid;
+import java.io.IOException;
 
 /**
  * <h1>ExerciseController</h1>
@@ -42,9 +43,10 @@ public class ExerciseController {
     @PostMapping("/save-exercise-gif")
     @ApiOperation(value = "/save-exercise-gif", notes = "Save equipment's GIF")
     public ResponseBodyBean<Integer> saveExerciseGif(@RequestPart MultipartFile exerciseGif,
-                                                     @Valid SaveExerciseGifPayload payload) {
-        log.info("payload={}", payload);
-        return ResponseBodyBean.ofMessage("Saved exercise.");
+                                                     @Valid SaveExerciseGifPayload payload) throws IOException {
+        var affectedRows = exerciseService.saveExerciseGif(payload.getExerciseId(), exerciseGif);
+        return ResponseBodyBean.ofDataAndMessage(affectedRows, String.format("Saved exercise. affectedRows = %d",
+                                                                             affectedRows));
     }
 
     @PostMapping("/save-exercise-classification")

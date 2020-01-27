@@ -9,8 +9,8 @@ import org.apache.ibatis.annotations.Mapper;
  * Change description here.
  *
  * @author Johnny Miller (锺俊), email: johnnysviva@outlook.com
- * @date 1/20/20 4:14 PM
- **/
+ * @date 1 /20/20 4:14 PM
+ */
 @Mapper
 public interface ExerciseMapper {
     /**
@@ -20,4 +20,20 @@ public interface ExerciseMapper {
      * @return the integer
      */
     Integer insertExercise(ExercisePo exercisePo);
+
+    /**
+     * Select by id exercise po.
+     *
+     * @param id the id
+     * @return the exercise po
+     */
+    ExercisePo selectById(Long id);
+
+    /**
+     * Update exercise gif path by id integer.
+     *
+     * @param exercisePo the exercise po
+     * @return the integer
+     */
+    Integer updateExerciseGifPathById(ExercisePo exercisePo);
 }

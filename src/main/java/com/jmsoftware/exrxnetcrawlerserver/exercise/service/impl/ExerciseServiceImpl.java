@@ -1,6 +1,10 @@
 package com.jmsoftware.exrxnetcrawlerserver.exercise.service.impl;
 
 import cn.hutool.core.bean.BeanUtil;
+import cn.hutool.core.util.ObjectUtil;
+import com.baomidou.mybatisplus.core.toolkit.StringUtils;
+import com.jmsoftware.exrxnetcrawlerserver.common.SftpService;
+import com.jmsoftware.exrxnetcrawlerserver.common.SftpSubDirectory;
 import com.jmsoftware.exrxnetcrawlerserver.common.aspect.ValidateArgument;
 import com.jmsoftware.exrxnetcrawlerserver.common.exception.BizException;
 import com.jmsoftware.exrxnetcrawlerserver.exercise.domain.*;
@@ -9,10 +13,13 @@ import com.jmsoftware.exrxnetcrawlerserver.exercise.service.*;
 import com.jmsoftware.exrxnetcrawlerserver.muscle.service.MuscleService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.integration.file.support.FileExistsMode;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.multipart.MultipartFile;
 
 import javax.validation.Valid;
+import java.io.IOException;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Optional;
@@ -35,6 +42,7 @@ public class ExerciseServiceImpl implements ExerciseService {
     private final ExerciseCommentService exerciseCommentService;
     private final ExerciseRelatedMuscleService exerciseRelatedMuscleService;
     private final MuscleService muscleService;
+    private final SftpService sftpService;
 
     @Override
     public Integer saveExerciseClassification(SaveExerciseClassificationPayload payload) {
@@ -97,5 +105,40 @@ public class ExerciseServiceImpl implements ExerciseService {
         log.info("Saved exercise related muscle, affectedRowsForSavingExerciseRelatedMuscle = {}",
                  affectedRowsForSavingExerciseRelatedMuscle);
         return exercisePo.getId();
+    }
+
+    @Override
+    public ExercisePo getExerciseById(Long id) {
+        if (ObjectUtil.isNull(id)) {
+            return null;
+        }
+        return exerciseMapper.selectById(id);
+    }
+
+    @Override
+    public Integer updateExerciseGif(ExercisePo exercisePo) {
+        if (StringUtils.checkValNull(exercisePo.getExerciseGifPath())) {
+            throw new BizException("Invalid exercise's GIF path!");
+        }
+        return exerciseMapper.updateExerciseGifPathById(exercisePo);
+    }
+
+    @Override
+    public Integer saveExerciseGif(Long exerciseId, MultipartFile exerciseGif) throws IOException {
+        var exercisePo = this.getExerciseById(exerciseId);
+        if (!StringUtils.checkValNull(exercisePo.getExerciseGifPath())) {
+            var errorMessage = String.format("Already saved exercise's GIF, unable to overwrite! exercisePo = %s",
+                                             exercisePo);
+            log.error(errorMessage);
+            throw new BizException(errorMessage);
+        }
+        var exerciseGifPath = sftpService.upload(exerciseGif,
+                                                 SftpSubDirectory.EXERCISE_GIF.getSubDirectory(),
+                                                 FileExistsMode.REPLACE,
+                                                 true);
+        exercisePo.setExerciseGifPath(exerciseGifPath);
+        var affectedRows = this.updateExerciseGif(exercisePo);
+        log.info("Saved exercise's GIF. exercisePo = {}, affectedRows = {}", exercisePo, affectedRows);
+        return affectedRows;
     }
 }
