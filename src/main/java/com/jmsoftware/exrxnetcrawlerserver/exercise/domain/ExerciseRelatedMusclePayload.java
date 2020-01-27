@@ -19,6 +19,6 @@ public class ExerciseRelatedMusclePayload {
     @NotEmpty
     private String muscleName;
     @NotNull
-    @Range(min = 1, max = 3)
+    @Range(min = 1, max = 7)
     private Integer relatedMuscleType;
 }
