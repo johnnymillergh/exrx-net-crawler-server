@@ -2,7 +2,9 @@ package com.jmsoftware.exrxnetcrawlerserver.exercise.domain;
 
 import lombok.Data;
 
+import javax.validation.Valid;
 import javax.validation.constraints.NotEmpty;
+import java.util.List;
 
 /**
  * <h1>SaveExercisePayload</h1>
@@ -16,6 +18,9 @@ import javax.validation.constraints.NotEmpty;
 public class SaveExercisePayload {
     @NotEmpty
     private String exerciseName;
+    @Valid
+    @NotEmpty
+    private List<ExerciseRelatedClassificationPayload> exerciseRelatedClassificationPayloadList;
     @NotEmpty
     private String preparation;
     @NotEmpty

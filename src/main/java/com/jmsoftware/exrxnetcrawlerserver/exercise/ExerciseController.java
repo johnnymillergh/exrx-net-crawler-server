@@ -2,11 +2,13 @@ package com.jmsoftware.exrxnetcrawlerserver.exercise;
 
 import com.jmsoftware.exrxnetcrawlerserver.common.ResponseBodyBean;
 import com.jmsoftware.exrxnetcrawlerserver.exercise.domain.SaveExerciseClassificationPayload;
+import com.jmsoftware.exrxnetcrawlerserver.exercise.domain.SaveExerciseGifPayload;
 import com.jmsoftware.exrxnetcrawlerserver.exercise.domain.SaveExercisePayload;
 import com.jmsoftware.exrxnetcrawlerserver.exercise.service.ExerciseService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -20,6 +22,7 @@ import javax.validation.Valid;
  * @author Johnny Miller (锺俊), email: johnnysviva@outlook.com
  * @date 1/20/20 4:13 PM
  **/
+@Slf4j
 @RestController
 @RequestMapping("/exercise")
 @RequiredArgsConstructor
@@ -29,8 +32,16 @@ public class ExerciseController {
 
     @PostMapping("/save-exercise")
     @ApiOperation(value = "/save-equipment", notes = "Save equipment")
-    public ResponseBodyBean<Integer> saveExercise(@RequestPart MultipartFile exerciseGif,
-                                                  @Valid SaveExercisePayload payload) {
+    public ResponseBodyBean<Integer> saveExercise(@Valid @RequestBody SaveExercisePayload payload) {
+        log.info("payload={}", payload);
+        return ResponseBodyBean.ofMessage("Saved exercise.");
+    }
+
+    @PostMapping("/save-exercise-gif")
+    @ApiOperation(value = "/save-exercise-gif", notes = "Save equipment's GIF")
+    public ResponseBodyBean<Integer> saveExerciseGif(@RequestPart MultipartFile exerciseGif,
+                                                     @Valid SaveExerciseGifPayload payload) {
+        log.info("payload={}", payload);
         return ResponseBodyBean.ofMessage("Saved exercise.");
     }
 
