@@ -132,7 +132,7 @@ public class MethodArgumentValidationAspect {
     @AfterThrowing(pointcut = "validateMethodArgumentPointcut()", throwing = "e")
     public void afterThrowingException(JoinPoint joinPoint, Exception e) {
         log.info("Signature        : {}", joinPoint.getSignature().toShortString());
-        log.info("Exception Info   : {}", e.toString());
-        log.info("== METHOD'S ARGUMENT VALIDATION END WITH EXCEPTION ==");
+        log.error("Exception message: {}", e.toString());
+        log.error("== METHOD'S ARGUMENT VALIDATION END WITH EXCEPTION ==");
     }
 }

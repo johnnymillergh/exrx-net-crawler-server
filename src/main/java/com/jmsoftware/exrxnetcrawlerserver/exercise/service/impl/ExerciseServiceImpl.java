@@ -94,11 +94,15 @@ public class ExerciseServiceImpl implements ExerciseService {
         // Save exercise's related muscle
         var exerciseRelatedMusclePos = new LinkedList<ExerciseRelatedMusclePo>();
         payload.getExerciseRelatedMusclePayloadList().forEach(item -> {
-            var optionalMusclePo = Optional.of(muscleService.getMuscleByName(item.getMuscleName()));
-            var po = new ExerciseRelatedMusclePo();
-            po.setMuscleId(optionalMusclePo.get().getId());
-            po.setRelatedMuscleType(item.getRelatedMuscleType());
-            exerciseRelatedMusclePos.add(po);
+            var optionalMusclePo = Optional.ofNullable(muscleService.getMuscleByName(item.getMuscleName()));
+            optionalMusclePo.ifPresentOrElse(musclePo -> {
+                var po = new ExerciseRelatedMusclePo();
+                po.setMuscleId(optionalMusclePo.get().getId());
+                po.setRelatedMuscleType(item.getRelatedMuscleType());
+                exerciseRelatedMusclePos.add(po);
+            }, () -> {
+                log.warn("Cannot find muscle by name. Given exerciseRelatedMusclePayload: {}", item);
+            });
         });
         var affectedRowsForSavingExerciseRelatedMuscle =
                 exerciseRelatedMuscleService.saveExerciseRelatedMuscle(exerciseRelatedMusclePos);
