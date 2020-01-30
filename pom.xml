@@ -7,7 +7,7 @@
     <!-- Project Basics -->
     <groupId>com.jmsoftware</groupId>
     <artifactId>exrx-net-crawler-server</artifactId>
-    <version>1.0.0-SNAPSHOT</version>
+    <version>1.0.0</version>
     <name>ExRx.net Crawler Server</name>
     <description>ExRx.net Crawler Server is a Spring Boot based project, which is responsible for managing the
         net-crawling and exercise data.
