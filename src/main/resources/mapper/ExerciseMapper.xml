@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jmsoftware.exrxnetcrawlerserver.exercise.mapper.ExerciseMapper">
+    <resultMap id="BaseResultMap" type="com.jmsoftware.exrxnetcrawlerserver.exercise.domain.ExercisePo">
+        <!--@Table exercise-->
+        <id column="id" jdbcType="BIGINT" property="id"/>
+        <result column="name" jdbcType="VARCHAR" property="name"/>
+        <result column="preparation" jdbcType="VARCHAR" property="preparation"/>
+        <result column="execution" jdbcType="VARCHAR" property="execution"/>
+        <result column="exercise_gif_path" jdbcType="VARCHAR" property="exerciseGifPath"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id, `name`, preparation, execution, exercise_gif_path
+    </sql>
+
+    <insert id="insertExercise" useGeneratedKeys="true" keyProperty="id">
+        INSERT INTO exercise(name,
+                             preparation,
+                             execution,
+                             exercise_gif_path)
+        VALUES (#{name},
+                #{preparation},
+                #{execution},
+                #{exerciseGifPath})
+    </insert>
+
+    <select id="selectById" resultMap="BaseResultMap">
+        SELECT e.id,
+               e.name,
+               e.exercise_gif_path
+        FROM exercise e
+        WHERE e.id = #{id}
+    </select>
+
+    <update id="updateExerciseGifPathById">
+        UPDATE exercise
+        <set>
+            <if test="exerciseGifPath != null and exerciseGifPath != ''">
+                exercise_gif_path = #{exerciseGifPath}
+            </if>
+        </set>
+        WHERE id = #{id}
+    </update>
+</mapper>

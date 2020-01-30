@@ -8,15 +8,10 @@
         <result column="name" jdbcType="VARCHAR" property="name"/>
     </resultMap>
 
-    <sql id="Base_Column_List">
-        <!--@mbg.generated-->
-        id, `name`
-    </sql>
-
-    <insert id="insertBodyPartList">
-        INSERT INTO body_part(id, name) VALUES
+    <insert id="insertBodyPartList" useGeneratedKeys="true" keyProperty="id">
+        INSERT INTO body_part(name) VALUES
         <foreach collection="bodyPartPoList" item="item" separator=",">
-            (#{item.id}, #{item.name})
+            (#{item.name})
         </foreach>
     </insert>
 </mapper>

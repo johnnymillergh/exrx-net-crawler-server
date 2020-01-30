@@ -1,5 +1,6 @@
 package com.jmsoftware.exrxnetcrawlerserver.bodypart.service.impl;
 
+import cn.hutool.core.collection.CollectionUtil;
 import com.jmsoftware.exrxnetcrawlerserver.bodypart.domain.BodyPartPo;
 import com.jmsoftware.exrxnetcrawlerserver.bodypart.mapper.BodyPartMapper;
 import com.jmsoftware.exrxnetcrawlerserver.bodypart.service.BodyPartService;
@@ -24,9 +25,13 @@ public class BodyPartServiceImpl implements BodyPartService {
 
     @Override
     public Integer saveBodyPart(List<String> bodyPartNameList) {
-        List<BodyPartPo> bodyPartPoList = new LinkedList<>();
+        if (CollectionUtil.isEmpty(bodyPartNameList)) {
+            return 0;
+        }
+        var bodyPartPoList = new LinkedList<BodyPartPo>();
         bodyPartNameList.forEach(bodyPartName -> {
-            BodyPartPo bodyPartPo = BodyPartPo.builder().name(bodyPartName).build();
+            var bodyPartPo = new BodyPartPo();
+            bodyPartPo.setName(bodyPartName);
             bodyPartPoList.add(bodyPartPo);
         });
         return bodyPartMapper.insertBodyPartList(bodyPartPoList);

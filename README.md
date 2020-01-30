@@ -11,7 +11,9 @@
 
 # ExRx Net Crawler Server
 
-**ExRx Net Crawler Server** is a Spring Boot based tutorial project, which represents the basic and advanced usages of Kotlin language, and also integrated with awesome features.
+**ExRx Net Crawler Server** is a Spring Boot based project, which is responsible for managing the net-crawling and exercise data.
+
+[Official Docker Image](https://hub.docker.com/r/ijohnnymiller/exrx-net-crawler-server-prod)
 
 ## Features
 
