@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jmsoftware.exrxnetcrawlerserver.exercise.mapper.ExerciseRelatedClassificationMapper">
+    <resultMap id="BaseResultMap"
+               type="com.jmsoftware.exrxnetcrawlerserver.exercise.domain.ExerciseRelatedClassificationPo">
+        <!--@Table exercise_related_classification-->
+        <id column="id" jdbcType="BIGINT" property="id"/>
+        <result column="exercise_classification_id" jdbcType="BIGINT" property="exerciseClassificationId"/>
+        <result column="related_classification_type" jdbcType="TINYINT" property="relatedClassificationType"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id, exercise_classification_id, related_classification_type
+    </sql>
+
+    <insert id="insertExerciseRelatedClassification">
+        INSERT INTO exercise_related_classification(exercise_classification_id,
+                                                    related_classification_type)
+        VALUES
+        <foreach collection="list" item="item" separator=",">
+            (#{item.exerciseClassificationId},
+             #{item.relatedClassificationType})
+        </foreach>
+    </insert>
+</mapper>

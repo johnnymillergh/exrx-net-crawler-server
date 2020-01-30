@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jmsoftware.exrxnetcrawlerserver.muscle.mapper.MuscleImageMapper">
+    <resultMap id="BaseResultMap" type="com.jmsoftware.exrxnetcrawlerserver.muscle.domain.MuscleImagePo">
+        <!--@Table muscle_image-->
+        <id column="id" jdbcType="BIGINT" property="id"/>
+        <result column="muscle_id" jdbcType="BIGINT" property="muscleId"/>
+        <result column="image_path" jdbcType="VARCHAR" property="imagePath"/>
+        <result column="alternative_text" jdbcType="VARCHAR" property="alternativeText"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id, muscle_id, image_path, alternative_text
+    </sql>
+
+    <insert id="insertMuscleImage" useGeneratedKeys="true" keyProperty="id">
+        INSERT INTO muscle_image(muscle_id,
+                                 image_path,
+                                 alternative_text)
+        VALUES (#{muscleId},
+                #{imagePath},
+                #{alternativeText})
+    </insert>
+</mapper>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jmsoftware.exrxnetcrawlerserver.exercise.mapper.ExerciseCommentMapper">
+    <resultMap id="BaseResultMap" type="com.jmsoftware.exrxnetcrawlerserver.exercise.domain.ExerciseCommentPo">
+        <!--@Table exercise_comment-->
+        <id column="id" jdbcType="BIGINT" property="id"/>
+        <result column="exercise_id" jdbcType="BIGINT" property="exerciseId"/>
+        <result column="comment" jdbcType="VARCHAR" property="comment"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id, exercise_id, `comment`
+    </sql>
+
+    <insert id="insertExerciseComment">
+        INSERT INTO exercise_comment(exercise_id, comment)
+        VALUES (#{exerciseId}, #{comment})
+    </insert>
+</mapper>

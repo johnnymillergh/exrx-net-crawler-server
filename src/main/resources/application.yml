@@ -26,6 +26,9 @@ spring:
       # `file-size-threshold` specifies the size threshold after which files will be written to disk.
       # The default is 0. We set it as 0 too.
       file-size-threshold: 0
+  content:
+    fs:
+      filesystem-root: /Users/johnny/Documents/@project.artifactId@/spring-content
 
 logging:
   config: classpath:configuration/logback/logback-@env@.xml

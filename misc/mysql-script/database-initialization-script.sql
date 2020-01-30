@@ -8,9 +8,11 @@ CREATE TABLE body_part (
     COMMENT 'Human Body Part.';
 
 CREATE TABLE equipment (
-    id   bigint UNSIGNED AUTO_INCREMENT
+    id   bigint UNSIGNED AUTO_INCREMENT COMMENT 'The ID of exercise equipment.'
         PRIMARY KEY,
-    name varchar(50) NOT NULL COMMENT 'The name of equipment.'
+    name varchar(50) NOT NULL COMMENT 'The name of equipment.',
+    CONSTRAINT equipment_name_uindex
+        UNIQUE (name)
 )
     COMMENT 'Exercise Equipment.';
 
@@ -18,8 +20,8 @@ CREATE TABLE exercise (
     id                bigint UNSIGNED AUTO_INCREMENT COMMENT 'The ID of exercise.'
         PRIMARY KEY,
     name              varchar(100) NOT NULL COMMENT 'The name of exercise.',
-    preparation       varchar(500) NOT NULL COMMENT 'Exercise preparation description.',
-    execution         varchar(500) NOT NULL COMMENT 'Exercise execution description.',
+    preparation       varchar(800) NOT NULL COMMENT 'Exercise preparation description.',
+    execution         varchar(800) NOT NULL COMMENT 'Exercise execution description.',
     exercise_gif_path varchar(100) NULL COMMENT 'Exercise GIF image path.',
     CONSTRAINT exercise_name_uindex
         UNIQUE (name)
@@ -76,20 +78,29 @@ CREATE TABLE exercise_related_muscle (
     id                  bigint UNSIGNED AUTO_INCREMENT COMMENT 'The ID of exercise related muscle.'
         PRIMARY KEY,
     muscle_id           bigint UNSIGNED NOT NULL COMMENT 'The ID of muscle.',
-    related_muscle_type tinyint         NOT NULL COMMENT 'Related muscle type.
-1 - target, 2 - synergists, 3 - stabilizers'
+    related_muscle_type tinyint         NOT NULL COMMENT 'Related muscle type. Muscle movement classification.
+
+1 - Agonist
+2 - Antagonist
+3 - Target
+4 - Synergist
+5 - Stabilizer
+6 - Dynamic Stabilizer
+7 - Antagonist Stabilizer
+
+https://exrx.net/Kinesiology/Glossary#MuscleMovClass'
 )
     COMMENT 'Exercise Related Muscle.
 
 Relationship:
-One exercise can have 3 different types of related muscle.
+One exercise can have 3 (or more) different types of related muscle.
 And one exercise can have more than one specific type of related muscles.';
 
 CREATE TABLE kinesiology_glossary (
     id          bigint UNSIGNED AUTO_INCREMENT COMMENT 'The ID of kinesiology glossary.'
         PRIMARY KEY,
     name        varchar(30)   NOT NULL COMMENT 'The name kinesiology glossary.',
-    description varchar(2000) NULL,
+    description varchar(2000) NULL COMMENT 'The description of kinesiology glossary.',
     parent_id   int           NULL COMMENT 'The parent ID of kinesiology glossary.',
     CONSTRAINT kinesiology_glossary_name_uindex
         UNIQUE (name)
@@ -101,20 +112,23 @@ https://exrx.net/Kinesiology/Glossary';
 CREATE TABLE muscle (
     id           bigint UNSIGNED AUTO_INCREMENT COMMENT 'The ID of muscle.'
         PRIMARY KEY,
-    name         tinytext        NOT NULL COMMENT 'The name of muscle.',
+    name         varchar(50)     NOT NULL COMMENT 'The name of muscle.',
     other_names  varchar(200)    NULL COMMENT 'The muslce''s other names.',
     parent_id    bigint UNSIGNED NULL COMMENT 'The parent ID of muscle.',
-    body_part_id bigint UNSIGNED NOT NULL COMMENT 'Related body part ID.'
+    body_part_id bigint UNSIGNED NOT NULL COMMENT 'Related body part ID.',
+    CONSTRAINT muscle_name_uindex
+        UNIQUE (name)
 )
     COMMENT 'Muscle.
 
 https://exrx.net/Lists/Muscle';
 
 CREATE TABLE muscle_image (
-    id         bigint UNSIGNED AUTO_INCREMENT COMMENT 'The ID of muscle image.'
+    id               bigint UNSIGNED AUTO_INCREMENT COMMENT 'The ID of muscle image.'
         PRIMARY KEY,
-    muscle_id  bigint UNSIGNED NOT NULL COMMENT 'The ID of muslce.',
-    image_path varchar(100)    NOT NULL COMMENT 'The image path of muscle image.',
+    muscle_id        bigint UNSIGNED NOT NULL COMMENT 'The ID of muslce.',
+    image_path       varchar(100)    NOT NULL COMMENT 'The image path of muscle image.',
+    alternative_text varchar(100)    NOT NULL COMMENT 'A textual description of the image.',
     CONSTRAINT muscle_image_image_path_uindex
         UNIQUE (image_path)
 )
@@ -124,11 +138,10 @@ The relationship:
 One muscle to one or more muscle image.';
 
 CREATE TABLE related_muscle (
-    id                  bigint UNSIGNED AUTO_INCREMENT
+    id                bigint UNSIGNED AUTO_INCREMENT COMMENT 'The ID of related muscle.'
         PRIMARY KEY,
-    muscle_id           bigint UNSIGNED NULL,
-    related_muscle_id   bigint UNSIGNED NULL,
-    related_muscle_type tinyint         NULL COMMENT 'Related muscle type. 0 - the related muscle is parent node; 1 - normal related muscle'
+    muscle_id         bigint UNSIGNED NOT NULL COMMENT 'The ID of muscle.',
+    related_muscle_id bigint UNSIGNED NOT NULL COMMENT 'Related muscle''s ID.'
 )
     COMMENT 'Muscle''s related muscles.';
 
@@ -140,5 +153,5 @@ CREATE TABLE test_table (
     double_value   double      NULL,
     datetime_value datetime    NULL
 )
-    COMMENT 'TypeORM Test Table';
+    COMMENT 'Test Table for ORM library.';
 
