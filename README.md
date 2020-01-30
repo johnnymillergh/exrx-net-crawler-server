@@ -13,7 +13,7 @@
 
 **ExRx Net Crawler Server** is a Spring Boot based project, which is responsible for managing the net-crawling and exercise data.
 
-[Official Docker Image](https:offical.docker.iamge)
+[Official Docker Image](https://hub.docker.com/r/ijohnnymiller/exrx-net-crawler-server-prod)
 
 ## Features
 
