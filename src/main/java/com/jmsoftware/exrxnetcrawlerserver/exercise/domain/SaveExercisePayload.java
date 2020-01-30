@@ -19,7 +19,6 @@ public class SaveExercisePayload {
     @NotEmpty
     private String exerciseName;
     @Valid
-    @NotEmpty
     private List<ExerciseRelatedClassificationPayload> exerciseRelatedClassificationPayloadList;
     @NotEmpty
     private String preparation;
