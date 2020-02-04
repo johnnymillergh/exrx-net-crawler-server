@@ -46,6 +46,7 @@ public class CommonServiceImpl implements CommonService {
      * @param fieldName the field name
      * @param object    the object
      * @return the field value by name
+     * @see <a href='https://blog.csdn.net/sfhinsc/article/details/83790741'>Java 中遍历一个对象的所有属性</a>
      */
     private Object getFieldValueByName(String fieldName, Object object) {
         try {
@@ -64,6 +65,7 @@ public class CommonServiceImpl implements CommonService {
      *
      * @param o the o
      * @return the string [ ]
+     * @see <a href='https://blog.csdn.net/sfhinsc/article/details/83790741'>Java 中遍历一个对象的所有属性</a>
      */
     private String[] getFiledName(Object o) {
         Field[] fields = o.getClass().getDeclaredFields();
@@ -80,6 +82,7 @@ public class CommonServiceImpl implements CommonService {
      *
      * @param o the o
      * @return the fields info
+     * @see <a href='https://blog.csdn.net/sfhinsc/article/details/83790741'>Java 中遍历一个对象的所有属性</a>
      */
     private List<Map<String, Object>> getFieldsInfo(Object o) {
         Field[] fields = o.getClass().getDeclaredFields();
@@ -99,6 +102,7 @@ public class CommonServiceImpl implements CommonService {
      *
      * @param o the o
      * @return the object [ ]
+     * @see <a href='https://blog.csdn.net/sfhinsc/article/details/83790741'>Java 中遍历一个对象的所有属性</a>
      */
     public Object[] getFiledValues(Object o) {
         String[] fieldNames = this.getFiledName(o);
