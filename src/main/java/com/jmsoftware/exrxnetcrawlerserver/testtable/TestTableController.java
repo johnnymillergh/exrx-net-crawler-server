@@ -1,7 +1,7 @@
 package com.jmsoftware.exrxnetcrawlerserver.testtable;
 
 import cn.hutool.core.collection.CollectionUtil;
-import com.jmsoftware.exrxnetcrawlerserver.common.ResponseBodyBean;
+import com.jmsoftware.exrxnetcrawlerserver.common.bean.ResponseBodyBean;
 import com.jmsoftware.exrxnetcrawlerserver.testtable.domain.GetByIdPayload;
 import com.jmsoftware.exrxnetcrawlerserver.testtable.domain.PictureFile;
 import com.jmsoftware.exrxnetcrawlerserver.testtable.domain.TestTablePo;

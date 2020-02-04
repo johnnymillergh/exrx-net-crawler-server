@@ -1,6 +1,6 @@
 package com.jmsoftware.exrxnetcrawlerserver.exercise;
 
-import com.jmsoftware.exrxnetcrawlerserver.common.ResponseBodyBean;
+import com.jmsoftware.exrxnetcrawlerserver.common.bean.ResponseBodyBean;
 import com.jmsoftware.exrxnetcrawlerserver.exercise.domain.SaveExerciseClassificationPayload;
 import com.jmsoftware.exrxnetcrawlerserver.exercise.domain.SaveExerciseGifPayload;
 import com.jmsoftware.exrxnetcrawlerserver.exercise.domain.SaveExercisePayload;

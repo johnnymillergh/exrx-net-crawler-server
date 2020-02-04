@@ -1,4 +1,4 @@
-package com.jmsoftware.exrxnetcrawlerserver.common;
+package com.jmsoftware.exrxnetcrawlerserver.common.controller;
 
 import com.jmsoftware.exrxnetcrawlerserver.common.configuration.ProjectProperty;
 import io.swagger.annotations.Api;

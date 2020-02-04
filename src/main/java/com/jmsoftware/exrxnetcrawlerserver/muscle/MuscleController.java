@@ -1,6 +1,6 @@
 package com.jmsoftware.exrxnetcrawlerserver.muscle;
 
-import com.jmsoftware.exrxnetcrawlerserver.common.ResponseBodyBean;
+import com.jmsoftware.exrxnetcrawlerserver.common.bean.ResponseBodyBean;
 import com.jmsoftware.exrxnetcrawlerserver.muscle.domain.SaveMusclePayload;
 import com.jmsoftware.exrxnetcrawlerserver.muscle.domain.UpdateMuscleDetailsPayload;
 import com.jmsoftware.exrxnetcrawlerserver.muscle.service.MuscleService;

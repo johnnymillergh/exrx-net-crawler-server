@@ -1,6 +1,6 @@
 package com.jmsoftware.exrxnetcrawlerserver.equipment;
 
-import com.jmsoftware.exrxnetcrawlerserver.common.ResponseBodyBean;
+import com.jmsoftware.exrxnetcrawlerserver.common.bean.ResponseBodyBean;
 import com.jmsoftware.exrxnetcrawlerserver.equipment.domain.SaveEquipmentPayload;
 import com.jmsoftware.exrxnetcrawlerserver.equipment.service.EquipmentService;
 import io.swagger.annotations.Api;

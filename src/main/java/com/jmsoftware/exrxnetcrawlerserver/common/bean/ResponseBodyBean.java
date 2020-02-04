@@ -1,4 +1,4 @@
-package com.jmsoftware.exrxnetcrawlerserver.common;
+package com.jmsoftware.exrxnetcrawlerserver.common.bean;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.jmsoftware.exrxnetcrawlerserver.common.aspect.ExceptionControllerAdvice;

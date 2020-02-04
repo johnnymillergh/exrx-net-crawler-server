@@ -2,7 +2,7 @@ package com.jmsoftware.exrxnetcrawlerserver.bodypart;
 
 import com.jmsoftware.exrxnetcrawlerserver.bodypart.domain.SaveBodyPartPayload;
 import com.jmsoftware.exrxnetcrawlerserver.bodypart.service.BodyPartService;
-import com.jmsoftware.exrxnetcrawlerserver.common.ResponseBodyBean;
+import com.jmsoftware.exrxnetcrawlerserver.common.bean.ResponseBodyBean;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import lombok.RequiredArgsConstructor;

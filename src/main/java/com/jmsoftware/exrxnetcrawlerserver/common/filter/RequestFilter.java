@@ -1,4 +1,4 @@
-package com.jmsoftware.exrxnetcrawlerserver.common;
+package com.jmsoftware.exrxnetcrawlerserver.common.filter;
 
 import com.jmsoftware.exrxnetcrawlerserver.common.util.RequestUtil;
 import lombok.extern.slf4j.Slf4j;

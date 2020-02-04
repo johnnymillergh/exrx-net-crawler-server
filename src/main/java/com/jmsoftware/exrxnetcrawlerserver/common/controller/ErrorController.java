@@ -1,4 +1,4 @@
-package com.jmsoftware.exrxnetcrawlerserver.common;
+package com.jmsoftware.exrxnetcrawlerserver.common.controller;
 
 import io.swagger.annotations.Api;
 import lombok.extern.slf4j.Slf4j;

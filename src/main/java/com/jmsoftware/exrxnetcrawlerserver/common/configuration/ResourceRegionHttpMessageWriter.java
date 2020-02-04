@@ -1,4 +1,4 @@
-package com.jmsoftware.exrxnetcrawlerserver.common;
+package com.jmsoftware.exrxnetcrawlerserver.common.configuration;
 
 import lombok.extern.slf4j.Slf4j;
 import org.reactivestreams.Publisher;
