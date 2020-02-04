@@ -5,7 +5,7 @@ import com.jmsoftware.exrxnetcrawlerserver.common.aspect.ExceptionControllerAdvi
 import com.jmsoftware.exrxnetcrawlerserver.common.constant.HttpStatus;
 import com.jmsoftware.exrxnetcrawlerserver.common.constant.IUniversalStatus;
 import com.jmsoftware.exrxnetcrawlerserver.common.exception.BaseException;
-import com.jmsoftware.exrxnetcrawlerserver.common.exception.BizException;
+import com.jmsoftware.exrxnetcrawlerserver.common.exception.BusinessException;
 import lombok.Builder;
 import lombok.Getter;
 
@@ -197,7 +197,7 @@ public class ResponseBodyBean<T> implements Serializable {
      * @return response body
      */
     public static <T> ResponseBodyBean<T> ofFailure(String message) {
-        throw new BizException(message);
+        throw new BusinessException(message);
     }
 
     /**
@@ -207,7 +207,7 @@ public class ResponseBodyBean<T> implements Serializable {
      * @return response body
      */
     public static <T> ResponseBodyBean<T> ofFailure(Object data) {
-        throw new BizException(data);
+        throw new BusinessException(data);
     }
 
     /**
@@ -218,7 +218,7 @@ public class ResponseBodyBean<T> implements Serializable {
      * @return response body
      */
     public static <T> ResponseBodyBean<T> ofFailure(T data, String message) {
-        throw new BizException(data, message);
+        throw new BusinessException(data, message);
     }
 
     /**

@@ -2,7 +2,7 @@ package com.jmsoftware.exrxnetcrawlerserver.exercise.service.impl;
 
 import cn.hutool.core.collection.CollectionUtil;
 import com.baomidou.mybatisplus.core.toolkit.StringUtils;
-import com.jmsoftware.exrxnetcrawlerserver.common.exception.BizException;
+import com.jmsoftware.exrxnetcrawlerserver.common.exception.BusinessException;
 import com.jmsoftware.exrxnetcrawlerserver.exercise.domain.ExerciseClassificationPo;
 import com.jmsoftware.exrxnetcrawlerserver.exercise.mapper.ExerciseClassificationMapper;
 import com.jmsoftware.exrxnetcrawlerserver.exercise.service.ExerciseClassificationService;
@@ -35,7 +35,7 @@ public class ExerciseClassificationServiceImpl implements ExerciseClassification
     @Override
     public ExerciseClassificationPo getExerciseClassificationByName(String name) {
         if (StringUtils.checkValNull(name)) {
-            throw new BizException("Invalid exercise classification name!");
+            throw new BusinessException("Invalid exercise classification name!");
         }
         return exerciseClassificationMapper.selectByExerciseClassificationName(name);
     }

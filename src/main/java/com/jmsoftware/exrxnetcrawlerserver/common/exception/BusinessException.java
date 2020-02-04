@@ -4,53 +4,53 @@ import com.jmsoftware.exrxnetcrawlerserver.common.constant.HttpStatus;
 import com.jmsoftware.exrxnetcrawlerserver.common.constant.IUniversalStatus;
 
 /**
- * <h1>BizException</h1>
+ * <h1>BusinessException</h1>
  * <p>
  * Business Exception
  *
  * @author Johnny Miller (鍾俊), email: johnnysviva@outlook.com
  * @date 2019-03-02 17:15
  **/
-public class BizException extends BaseException {
+public class BusinessException extends BaseException {
     private static final long serialVersionUID = 6403325238832002908L;
 
-    public BizException(HttpStatus httpStatus) {
+    public BusinessException(HttpStatus httpStatus) {
         super(httpStatus);
     }
 
-    public BizException(HttpStatus httpStatus, Object data) {
+    public BusinessException(HttpStatus httpStatus, Object data) {
         super(httpStatus, data);
     }
 
-    public BizException(HttpStatus httpStatus, String message) {
+    public BusinessException(HttpStatus httpStatus, String message) {
         super(httpStatus, message);
     }
 
-    public BizException(IUniversalStatus status) {
+    public BusinessException(IUniversalStatus status) {
         super(status);
     }
 
-    public BizException(IUniversalStatus status, Object data) {
+    public BusinessException(IUniversalStatus status, Object data) {
         super(status, data);
     }
 
-    public BizException(String message) {
+    public BusinessException(String message) {
         super(message);
     }
 
-    public BizException(Throwable throwable) {
+    public BusinessException(Throwable throwable) {
         super(throwable);
     }
 
-    public BizException(Integer status, String message, Object data) {
+    public BusinessException(Integer status, String message, Object data) {
         super(status, message, data);
     }
 
-    public BizException(Object data) {
+    public BusinessException(Object data) {
         super(data);
     }
 
-    public BizException(Object data, String message) {
+    public BusinessException(Object data, String message) {
         super(data, message);
     }
 }

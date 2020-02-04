@@ -4,7 +4,7 @@ import cn.hutool.core.bean.BeanUtil;
 import cn.hutool.core.util.ObjectUtil;
 import com.baomidou.mybatisplus.core.toolkit.StringUtils;
 import com.jmsoftware.exrxnetcrawlerserver.common.aspect.ValidateArgument;
-import com.jmsoftware.exrxnetcrawlerserver.common.exception.BizException;
+import com.jmsoftware.exrxnetcrawlerserver.common.exception.BusinessException;
 import com.jmsoftware.exrxnetcrawlerserver.common.sftp.SftpService;
 import com.jmsoftware.exrxnetcrawlerserver.common.sftp.SftpSubDirectory;
 import com.jmsoftware.exrxnetcrawlerserver.exercise.domain.*;
@@ -65,7 +65,7 @@ public class ExerciseServiceImpl implements ExerciseService {
         exercisePo.setPreparation(payload.getPreparation());
         exercisePo.setExecution(payload.getExecution());
         var optionalExercise = Optional.ofNullable(exerciseMapper.insertExercise(exercisePo));
-        optionalExercise.orElseThrow(() -> new BizException("Cannot insert exercise into MySQL!"));
+        optionalExercise.orElseThrow(() -> new BusinessException("Cannot insert exercise into MySQL!"));
         log.info("Saved exercise, affectedRows = {}, exercise = {}", optionalExercise.get(), exercisePo);
 
         // Save exercise's related classification
@@ -122,7 +122,7 @@ public class ExerciseServiceImpl implements ExerciseService {
     @Override
     public Integer updateExerciseGif(ExercisePo exercisePo) {
         if (StringUtils.checkValNull(exercisePo.getExerciseGifPath())) {
-            throw new BizException("Invalid exercise's GIF path!");
+            throw new BusinessException("Invalid exercise's GIF path!");
         }
         return exerciseMapper.updateExerciseGifPathById(exercisePo);
     }
@@ -134,7 +134,7 @@ public class ExerciseServiceImpl implements ExerciseService {
             var errorMessage = String.format("Already saved exercise's GIF, unable to overwrite! exercisePo = %s",
                                              exercisePo);
             log.error(errorMessage);
-            throw new BizException(errorMessage);
+            throw new BusinessException(errorMessage);
         }
         var exerciseGifPath = sftpService.upload(exerciseGif,
                                                  SftpSubDirectory.EXERCISE_GIF.getSubDirectory(),
