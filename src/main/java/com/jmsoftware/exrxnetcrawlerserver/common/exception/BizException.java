@@ -1,7 +1,7 @@
 package com.jmsoftware.exrxnetcrawlerserver.common.exception;
 
-import com.jmsoftware.exrxnetcrawlerserver.common.HttpStatus;
-import com.jmsoftware.exrxnetcrawlerserver.common.IUniversalStatus;
+import com.jmsoftware.exrxnetcrawlerserver.common.constant.HttpStatus;
+import com.jmsoftware.exrxnetcrawlerserver.common.constant.IUniversalStatus;
 
 /**
  * Description: BizException, change description here.

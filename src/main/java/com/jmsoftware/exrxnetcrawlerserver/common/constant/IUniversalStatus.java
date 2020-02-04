@@ -1,4 +1,4 @@
-package com.jmsoftware.exrxnetcrawlerserver.common;
+package com.jmsoftware.exrxnetcrawlerserver.common.constant;
 
 /**
  * Description: IUniversalStatus, interface of RESTful API Status code

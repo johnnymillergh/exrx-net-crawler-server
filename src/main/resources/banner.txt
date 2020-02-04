@@ -4,7 +4,7 @@ ${AnsiStyle.BOLD}${AnsiColor.BRIGHT_GREEN}
  / _/ \ \ // , _/\ \ / /    / -_) __/ / /__/ __/ _ `/ |/|/ / / -_) __/ _\ \/ -_) __/ |/ / -_) __/
 /___//_\_\/_/|_|/_\_\ /_/|_/\__/\__/  \___/_/  \_,_/|__,__/_/\__/_/   /___/\__/_/  |___/\__/_/
 ${AnsiStyle.BOLD}ExRx Net Crawler Server :: Powered by Spring Boot ::${spring-boot.formatted-version}
-${AnsiColor.CYAN}Author: Johnny Miller (锺俊), email: johnnysviva@outlook.com
+${AnsiColor.CYAN}Author: Johnny Miller (鍾俊), email: johnnysviva@outlook.com
 ${AnsiStyle.NORMAL}${AnsiColor.MAGENTA}http://patorjk.com/software/taag/#p=display&f=Slant&t=ExRx%20Net%20Crawler%20Server
 ${AnsiColor.BRIGHT_BLACK}
 -------------------------------------------Font Info-------------------------------------------

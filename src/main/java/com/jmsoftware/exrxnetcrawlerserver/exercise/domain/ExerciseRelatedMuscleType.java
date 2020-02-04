@@ -7,7 +7,7 @@ import lombok.Getter;
  * <p>
  * From Muscle Movement Classification.
  *
- * @author Johnny Miller (锺俊), email: johnnysviva@outlook.com
+ * @author Johnny Miller (鍾俊), email: johnnysviva@outlook.com
  * @date 1/21/20 9:16 AM
  * @see <a href='https://exrx.net/Kinesiology/Glossary#MuscleMovClass'>Muscle Movement Classification</a>
  **/

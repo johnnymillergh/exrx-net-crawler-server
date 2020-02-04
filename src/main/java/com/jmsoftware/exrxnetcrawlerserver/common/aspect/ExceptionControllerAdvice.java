@@ -2,8 +2,8 @@ package com.jmsoftware.exrxnetcrawlerserver.common.aspect;
 
 import cn.hutool.core.collection.CollUtil;
 import cn.hutool.json.JSONUtil;
-import com.jmsoftware.exrxnetcrawlerserver.common.HttpStatus;
 import com.jmsoftware.exrxnetcrawlerserver.common.ResponseBodyBean;
+import com.jmsoftware.exrxnetcrawlerserver.common.constant.HttpStatus;
 import com.jmsoftware.exrxnetcrawlerserver.common.exception.BaseException;
 import com.jmsoftware.exrxnetcrawlerserver.common.util.RequestUtil;
 import lombok.extern.slf4j.Slf4j;
