@@ -1,4 +1,4 @@
-package com.jmsoftware.exrxnetcrawlerserver.common;
+package com.jmsoftware.exrxnetcrawlerserver.common.sftp;
 
 import org.springframework.integration.file.support.FileExistsMode;
 import org.springframework.web.multipart.MultipartFile;
