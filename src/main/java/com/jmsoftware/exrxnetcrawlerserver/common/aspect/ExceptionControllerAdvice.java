@@ -24,7 +24,9 @@ import javax.validation.ConstraintViolationException;
 import java.util.Objects;
 
 /**
- * Description: ExceptionControllerAdvice
+ * <h1>ExceptionControllerAdvice</h1>
+ * <p>
+ * Exception advice for global controllers.
  *
  * @author Johnny Miller (鍾俊), email: johnnysviva@outlook.com
  * @date 2019-03-02 17:39

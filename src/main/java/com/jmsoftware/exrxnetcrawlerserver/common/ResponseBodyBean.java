@@ -13,7 +13,9 @@ import java.io.Serializable;
 import java.util.Date;
 
 /**
- * Description: ResponseBodyBean, change description here.
+ * <h1>ResponseBodyBean</h1>
+ * <p>
+ * Response body bean.
  *
  * @param <T> the body type
  * @author Johnny Miller (鍾俊), email: johnnysviva@outlook.com

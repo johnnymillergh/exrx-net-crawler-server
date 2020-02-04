@@ -10,7 +10,9 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 /**
- * Description: ResponseUtil
+ * <h1>ResponseUtil</h1>
+ * <p>
+ * Response util
  *
  * @author Johnny Miller (鍾俊), email: johnnysviva@outlook.com
  * @date 2019-03-23 18:02
