@@ -1,5 +1,6 @@
 package com.jmsoftware.exrxnetcrawlerserver.common.service;
 
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -17,4 +18,18 @@ public interface CommonService {
      * @return the application info.
      */
     Map<String, Object> getApplicationInfo();
+
+    /**
+     * List database list.
+     *
+     * @return the list
+     */
+    List<String> listDatabase();
+
+    /**
+     * Initial database.
+     *
+     * @return false: fail to initial database; true: succeed to initial database.
+     */
+    boolean initialDatabase();
 }

@@ -1,6 +1,7 @@
 package com.jmsoftware.exrxnetcrawlerserver.common.service.impl;
 
 import com.jmsoftware.exrxnetcrawlerserver.common.configuration.ProjectProperty;
+import com.jmsoftware.exrxnetcrawlerserver.common.mapper.CommonMapper;
 import com.jmsoftware.exrxnetcrawlerserver.common.service.CommonService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -26,6 +27,7 @@ import java.util.Map;
 @RequiredArgsConstructor
 public class CommonServiceImpl implements CommonService {
     private final ProjectProperty projectProperty;
+    private final CommonMapper commonMapper;
 
     @Override
     public Map<String, Object> getApplicationInfo() {
@@ -38,6 +40,23 @@ public class CommonServiceImpl implements CommonService {
             }
         });
         return map;
+    }
+
+    @Override
+    public List<String> listDatabase() {
+        return commonMapper.listDatabase();
+    }
+
+    @Override
+    public boolean initialDatabase() {
+        var database = "exercise_dictionary";
+        var databaseList = commonMapper.listDatabase();
+        var contains = databaseList.contains(database);
+        if (contains) {
+            return true;
+        }
+        commonMapper.createDatabase();
+        return true;
     }
 
     /**
