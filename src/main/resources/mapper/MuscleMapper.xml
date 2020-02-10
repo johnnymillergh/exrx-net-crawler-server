@@ -28,7 +28,11 @@
         SELECT id,
                name
         FROM muscle m
-        WHERE m.name = #{name}
+        WHERE m.name IN
+        <foreach collection="list" item="item" open="(" separator="," close=")">
+            #{item}
+        </foreach>
+        LIMIT 1
     </select>
 
     <update id="updateById">

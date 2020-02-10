@@ -27,10 +27,10 @@ public interface MuscleMapper{
     /**
      * Select by name muscle po.
      *
-     * @param name the name
+     * @param nameList the name list
      * @return the muscle po
      */
-    MusclePo selectByName(String name);
+    MusclePo selectByName(List<String> nameList);
 
     /**
      * Update by id integer.
