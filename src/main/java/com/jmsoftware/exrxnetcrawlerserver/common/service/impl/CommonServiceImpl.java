@@ -74,7 +74,7 @@ public class CommonServiceImpl implements CommonService {
             Method method = object.getClass().getMethod(getter);
             return method.invoke(object);
         } catch (Exception e) {
-            log.error(e.getMessage(), e);
+            log.error("Can't get field's value by name! Cause: {}", e.getMessage());
             return null;
         }
     }
