@@ -1,3 +1,28 @@
+# [1.1.0](https://github.com/johnnymillergh/exrx-net-crawler-server/compare/v1.0.0...v) (2020-02-11)
+
+
+### chore
+
+* **$SQL:** modify MySQL table structures ([d8133ed](https://github.com/johnnymillergh/exrx-net-crawler-server/commit/d8133ed5f167987f78c4edf228cafc2c6e2396af))
+
+
+### Features
+
+* **$Common:** provide API for retrieving application info ([24e8b36](https://github.com/johnnymillergh/exrx-net-crawler-server/commit/24e8b364ca38f26feba691159af96c98afafcd90))
+
+
+### Performance Improvements
+
+* **$Muscle:** refine method that querying muscle by name ([f768300](https://github.com/johnnymillergh/exrx-net-crawler-server/commit/f768300ac22c35c1b5ec7b9f12212703609c2e6a))
+* **$WebFlux:** refine WebFlux configuration ([b021896](https://github.com/johnnymillergh/exrx-net-crawler-server/commit/b02189618f03c61aeac8f6f24734253db3dccdd5))
+
+
+### BREAKING CHANGES
+
+* **$SQL:** update MySQL table structure (10:04 AM, Feb.11, 2020)
+
+
+
 # 1.0.0 (2020-01-30)
 
 
