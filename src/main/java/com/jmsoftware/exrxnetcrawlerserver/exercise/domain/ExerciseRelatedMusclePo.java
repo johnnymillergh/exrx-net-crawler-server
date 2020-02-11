@@ -17,6 +17,10 @@ public class ExerciseRelatedMusclePo {
      */
     private Long id;
     /**
+     * The ID of exercise.
+     */
+    private Long exerciseId;
+    /**
      * The ID of muscle.
      */
     private Long muscleId;

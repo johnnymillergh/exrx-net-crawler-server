@@ -62,6 +62,7 @@ like { id: 1, exercise_id: 1, comment: ''NONE'' }.';
 CREATE TABLE exercise_related_classification (
     id                          bigint UNSIGNED AUTO_INCREMENT COMMENT 'The ID of exercise related classification.'
         PRIMARY KEY,
+    exercise_id                 bigint UNSIGNED NOT NULL COMMENT 'The ID of exercise.',
     exercise_classification_id  bigint UNSIGNED NOT NULL COMMENT 'The exercise classification ID.',
     related_classification_type tinyint         NOT NULL COMMENT '1 - Utility, 2 - Mechanics, 3 - Force'
 )
@@ -77,6 +78,7 @@ One exercise can have 2 records whose types are both Utility.';
 CREATE TABLE exercise_related_muscle (
     id                  bigint UNSIGNED AUTO_INCREMENT COMMENT 'The ID of exercise related muscle.'
         PRIMARY KEY,
+    exercise_id         bigint UNSIGNED NOT NULL COMMENT 'The ID of exercise.',
     muscle_id           bigint UNSIGNED NOT NULL COMMENT 'The ID of muscle.',
     related_muscle_type tinyint         NOT NULL COMMENT 'Related muscle type. Muscle movement classification.
 
@@ -99,9 +101,9 @@ And one exercise can have more than one specific type of related muscles.';
 CREATE TABLE kinesiology_glossary (
     id          bigint UNSIGNED AUTO_INCREMENT COMMENT 'The ID of kinesiology glossary.'
         PRIMARY KEY,
-    name        varchar(30)   NOT NULL COMMENT 'The name kinesiology glossary.',
-    description varchar(2000) NULL COMMENT 'The description of kinesiology glossary.',
-    parent_id   int           NULL COMMENT 'The parent ID of kinesiology glossary.',
+    name        varchar(30)     NOT NULL COMMENT 'The name kinesiology glossary.',
+    description varchar(2000)   NULL COMMENT 'The description of kinesiology glossary.',
+    parent_id   bigint UNSIGNED NULL COMMENT 'The parent ID of kinesiology glossary.',
     CONSTRAINT kinesiology_glossary_name_uindex
         UNIQUE (name)
 )

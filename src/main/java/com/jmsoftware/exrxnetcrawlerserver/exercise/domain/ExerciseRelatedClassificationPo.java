@@ -17,6 +17,10 @@ public class ExerciseRelatedClassificationPo {
      */
     private Long id;
     /**
+     * The ID of exercise.
+     */
+    private Long exerciseId;
+    /**
      * The exercise classification ID.
      */
     private Long exerciseClassificationId;

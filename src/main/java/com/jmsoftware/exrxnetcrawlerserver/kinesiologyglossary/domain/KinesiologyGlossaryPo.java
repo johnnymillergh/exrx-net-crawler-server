@@ -27,5 +27,5 @@ public class KinesiologyGlossaryPo {
     /**
      * The parent ID of kinesiology glossary.
      */
-    private Integer parentId;
+    private Long parentId;
 }

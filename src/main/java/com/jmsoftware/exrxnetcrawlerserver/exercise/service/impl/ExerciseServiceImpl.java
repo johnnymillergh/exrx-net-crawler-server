@@ -74,6 +74,7 @@ public class ExerciseServiceImpl implements ExerciseService {
             var optionalExerciseClassificationPo =
                     Optional.of(exerciseClassificationService.getExerciseClassificationByName(payload1.getClassificationName()));
             var po = new ExerciseRelatedClassificationPo();
+            po.setExerciseId(exercisePo.getId());
             po.setExerciseClassificationId(optionalExerciseClassificationPo.get().getId());
             po.setRelatedClassificationType(payload1.getExerciseRelatedClassificationType());
             exerciseRelatedClassificationPoList.add(po);
@@ -97,7 +98,8 @@ public class ExerciseServiceImpl implements ExerciseService {
             var optionalMusclePo = Optional.ofNullable(muscleService.getMuscleByName(item.getMuscleName()));
             optionalMusclePo.ifPresentOrElse(musclePo -> {
                 var po = new ExerciseRelatedMusclePo();
-                po.setMuscleId(optionalMusclePo.get().getId());
+                po.setExerciseId(exercisePo.getId());
+                po.setMuscleId(musclePo.getId());
                 po.setRelatedMuscleType(item.getRelatedMuscleType());
                 exerciseRelatedMusclePos.add(po);
             }, () -> {
