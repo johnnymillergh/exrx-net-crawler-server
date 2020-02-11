@@ -9,7 +9,7 @@ services:
     ports:
       - "3306:3306"
     volumes:
-      - /Users/johnny/docker-file-mapping/mysql-8.0.18-1debian9:/var/lib/mysql
+      - /Users/johnny/docker-file-mapping/mysql-8.0.19-1debian9:/var/lib/mysql
     command: mysqld --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
     networks:
       exrx_net_crawler_network:
@@ -37,7 +37,7 @@ services:
     ports:
       - "8080:8080"
     volumes:
-      - /Users/johnny/docker-file-mapping/exrx-net-crawler-server:/log-dev_dkr
+      - /Users/johnny/docker-file-mapping/exrx-net-crawler-server:/log-prod
     networks:
       exrx_net_crawler_network:
         ipv4_address: 172.11.239.12
