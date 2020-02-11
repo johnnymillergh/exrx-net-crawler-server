@@ -2,7 +2,7 @@
 --
 -- Host: 127.0.0.1    Database: exercise_dictionary
 -- ------------------------------------------------------
--- Server version	8.0.18
+-- Server version	8.0.19
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -23,7 +23,7 @@ DROP TABLE IF EXISTS `body_part`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `body_part` (
-  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT COMMENT 'The ID of body part.',
+  `id` bigint unsigned NOT NULL AUTO_INCREMENT COMMENT 'The ID of body part.',
   `name` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL COMMENT 'The name of body part.',
   PRIMARY KEY (`id`),
   UNIQUE KEY `body_part_name_uindex` (`name`)
@@ -48,7 +48,7 @@ DROP TABLE IF EXISTS `equipment`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `equipment` (
-  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT COMMENT 'The ID of exercise equipment.',
+  `id` bigint unsigned NOT NULL AUTO_INCREMENT COMMENT 'The ID of exercise equipment.',
   `name` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL COMMENT 'The name of equipment.',
   PRIMARY KEY (`id`),
   UNIQUE KEY `equipment_name_uindex` (`name`)
@@ -72,7 +72,7 @@ DROP TABLE IF EXISTS `exercise`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `exercise` (
-  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT COMMENT 'The ID of exercise.',
+  `id` bigint unsigned NOT NULL AUTO_INCREMENT COMMENT 'The ID of exercise.',
   `name` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL COMMENT 'The name of exercise.',
   `preparation` varchar(800) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL COMMENT 'Exercise preparation description.',
   `execution` varchar(800) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL COMMENT 'Exercise execution description.',
@@ -99,7 +99,7 @@ DROP TABLE IF EXISTS `exercise_classification`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `exercise_classification` (
-  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT COMMENT 'The ID of exercise classification.',
+  `id` bigint unsigned NOT NULL AUTO_INCREMENT COMMENT 'The ID of exercise classification.',
   `name` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL COMMENT 'The name of exercise classification.',
   `description` varchar(1000) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL COMMENT 'The description of exercise classification.',
   PRIMARY KEY (`id`),
@@ -125,8 +125,8 @@ DROP TABLE IF EXISTS `exercise_comment`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `exercise_comment` (
-  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT COMMENT 'The ID of exercise comment.',
-  `exercise_id` bigint(20) unsigned NOT NULL COMMENT 'The ID of exercise.',
+  `id` bigint unsigned NOT NULL AUTO_INCREMENT COMMENT 'The ID of exercise comment.',
+  `exercise_id` bigint unsigned NOT NULL COMMENT 'The ID of exercise.',
   `comment` varchar(2500) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL COMMENT 'The comment.',
   PRIMARY KEY (`id`),
   UNIQUE KEY `exercise_comment_exercise_id_uindex` (`exercise_id`)
@@ -150,9 +150,10 @@ DROP TABLE IF EXISTS `exercise_related_classification`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `exercise_related_classification` (
-  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT COMMENT 'The ID of exercise related classification.',
-  `exercise_classification_id` bigint(20) unsigned NOT NULL COMMENT 'The exercise classification ID.',
-  `related_classification_type` tinyint(4) NOT NULL COMMENT '1 - Utility, 2 - Mechanics, 3 - Force',
+  `id` bigint unsigned NOT NULL AUTO_INCREMENT COMMENT 'The ID of exercise related classification.',
+  `exercise_id` bigint unsigned NOT NULL COMMENT 'The ID of exercise.',
+  `exercise_classification_id` bigint unsigned NOT NULL COMMENT 'The exercise classification ID.',
+  `related_classification_type` tinyint NOT NULL COMMENT '1 - Utility, 2 - Mechanics, 3 - Force',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='Exercise Related Classification.\n\nRelationship:\nOne exercise usually mapping to 3 types of exercise classification.\nAnd one exercise can have more than one specific type of classification.\n\nFor example:\nOne exercise can have 2 records whose types are both Utility.';
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -174,9 +175,10 @@ DROP TABLE IF EXISTS `exercise_related_muscle`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `exercise_related_muscle` (
-  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT COMMENT 'The ID of exercise related muscle.',
-  `muscle_id` bigint(20) unsigned NOT NULL COMMENT 'The ID of muscle.',
-  `related_muscle_type` tinyint(4) NOT NULL COMMENT 'Related muscle type. Muscle movement classification.\n\n1 - Agonist\n2 - Antagonist\n3 - Target\n4 - Synergist\n5 - Stabilizer\n6 - Dynamic Stabilizer\n7 - Antagonist Stabilizer\n\nhttps://exrx.net/Kinesiology/Glossary#MuscleMovClass',
+  `id` bigint unsigned NOT NULL AUTO_INCREMENT COMMENT 'The ID of exercise related muscle.',
+  `exercise_id` bigint unsigned NOT NULL COMMENT 'The ID of exercise.',
+  `muscle_id` bigint unsigned NOT NULL COMMENT 'The ID of muscle.',
+  `related_muscle_type` tinyint NOT NULL COMMENT 'Related muscle type. Muscle movement classification.\n\n1 - Agonist\n2 - Antagonist\n3 - Target\n4 - Synergist\n5 - Stabilizer\n6 - Dynamic Stabilizer\n7 - Antagonist Stabilizer\n\nhttps://exrx.net/Kinesiology/Glossary#MuscleMovClass',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='Exercise Related Muscle.\n\nRelationship:\nOne exercise can have 3 (or more) different types of related muscle.\nAnd one exercise can have more than one specific type of related muscles.';
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -198,10 +200,10 @@ DROP TABLE IF EXISTS `kinesiology_glossary`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `kinesiology_glossary` (
-  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT COMMENT 'The ID of kinesiology glossary.',
+  `id` bigint unsigned NOT NULL AUTO_INCREMENT COMMENT 'The ID of kinesiology glossary.',
   `name` varchar(30) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL COMMENT 'The name kinesiology glossary.',
   `description` varchar(2000) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL COMMENT 'The description of kinesiology glossary.',
-  `parent_id` int(11) DEFAULT NULL COMMENT 'The parent ID of kinesiology glossary.',
+  `parent_id` bigint unsigned DEFAULT NULL COMMENT 'The parent ID of kinesiology glossary.',
   PRIMARY KEY (`id`),
   UNIQUE KEY `kinesiology_glossary_name_uindex` (`name`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='Kinesiology Glossary.\n\nhttps://exrx.net/Kinesiology/Glossary';
@@ -224,11 +226,11 @@ DROP TABLE IF EXISTS `muscle`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `muscle` (
-  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT COMMENT 'The ID of muscle.',
+  `id` bigint unsigned NOT NULL AUTO_INCREMENT COMMENT 'The ID of muscle.',
   `name` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL COMMENT 'The name of muscle.',
   `other_names` varchar(200) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL COMMENT 'The muslce''s other names.',
-  `parent_id` bigint(20) unsigned DEFAULT NULL COMMENT 'The parent ID of muscle.',
-  `body_part_id` bigint(20) unsigned NOT NULL COMMENT 'Related body part ID.',
+  `parent_id` bigint unsigned DEFAULT NULL COMMENT 'The parent ID of muscle.',
+  `body_part_id` bigint unsigned NOT NULL COMMENT 'Related body part ID.',
   PRIMARY KEY (`id`),
   UNIQUE KEY `muscle_name_uindex` (`name`)
 ) ENGINE=InnoDB AUTO_INCREMENT=54 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='Muscle.\n\nhttps://exrx.net/Lists/Muscle';
@@ -252,8 +254,8 @@ DROP TABLE IF EXISTS `muscle_image`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `muscle_image` (
-  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT COMMENT 'The ID of muscle image.',
-  `muscle_id` bigint(20) unsigned NOT NULL COMMENT 'The ID of muslce.',
+  `id` bigint unsigned NOT NULL AUTO_INCREMENT COMMENT 'The ID of muscle image.',
+  `muscle_id` bigint unsigned NOT NULL COMMENT 'The ID of muslce.',
   `image_path` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL COMMENT 'The image path of muscle image.',
   `alternative_text` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL COMMENT 'A textual description of the image.',
   PRIMARY KEY (`id`),
@@ -279,9 +281,9 @@ DROP TABLE IF EXISTS `related_muscle`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `related_muscle` (
-  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT COMMENT 'The ID of related muscle.',
-  `muscle_id` bigint(20) unsigned NOT NULL COMMENT 'The ID of muscle.',
-  `related_muscle_id` bigint(20) unsigned NOT NULL COMMENT 'Related muscle''s ID.',
+  `id` bigint unsigned NOT NULL AUTO_INCREMENT COMMENT 'The ID of related muscle.',
+  `muscle_id` bigint unsigned NOT NULL COMMENT 'The ID of muscle.',
+  `related_muscle_id` bigint unsigned NOT NULL COMMENT 'Related muscle''s ID.',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=56 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='Muscle''s related muscles.';
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -304,9 +306,9 @@ DROP TABLE IF EXISTS `test_table`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `test_table` (
-  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+  `id` bigint unsigned NOT NULL AUTO_INCREMENT,
   `string_value` varchar(10) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
-  `int_value` int(11) DEFAULT NULL,
+  `int_value` int DEFAULT NULL,
   `double_value` double DEFAULT NULL,
   `datetime_value` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
@@ -332,4 +334,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-01-28 15:33:06
+-- Dump completed on 2020-02-11  9:54:23

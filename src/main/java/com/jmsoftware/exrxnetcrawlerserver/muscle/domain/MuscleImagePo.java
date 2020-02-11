@@ -9,7 +9,7 @@ import lombok.Data;
  * <p>
  * Corresponded with table `muscle_image`.
  *
- * @author Johnny Miller (锺俊), email: johnnysviva@outlook.com
+ * @author Johnny Miller (鍾俊), email: johnnysviva@outlook.com
  * @date 1/16/20 4:42 PM
  **/
 @Data

@@ -1,8 +1,8 @@
 package com.jmsoftware.exrxnetcrawlerserver.common.util;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.jmsoftware.exrxnetcrawlerserver.common.HttpStatus;
-import com.jmsoftware.exrxnetcrawlerserver.common.ResponseBodyBean;
+import com.jmsoftware.exrxnetcrawlerserver.common.bean.ResponseBodyBean;
+import com.jmsoftware.exrxnetcrawlerserver.common.constant.HttpStatus;
 import com.jmsoftware.exrxnetcrawlerserver.common.exception.BaseException;
 import lombok.extern.slf4j.Slf4j;
 
@@ -10,7 +10,9 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 /**
- * Description: ResponseUtil
+ * <h1>ResponseUtil</h1>
+ * <p>
+ * Response util
  *
  * @author Johnny Miller (鍾俊), email: johnnysviva@outlook.com
  * @date 2019-03-23 18:02

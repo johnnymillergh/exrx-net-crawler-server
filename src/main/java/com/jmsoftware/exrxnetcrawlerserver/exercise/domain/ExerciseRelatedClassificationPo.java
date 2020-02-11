@@ -7,7 +7,7 @@ import lombok.Data;
  * <p>
  * Exercise Persistence Object.
  *
- * @author Johnny Miller (锺俊), email: johnnysviva@outlook.com
+ * @author Johnny Miller (鍾俊), email: johnnysviva@outlook.com
  * @date 1/20/20 4:18 PM
  **/
 @Data
@@ -16,6 +16,10 @@ public class ExerciseRelatedClassificationPo {
      * The ID of exercise related classification.
      */
     private Long id;
+    /**
+     * The ID of exercise.
+     */
+    private Long exerciseId;
     /**
      * The exercise classification ID.
      */

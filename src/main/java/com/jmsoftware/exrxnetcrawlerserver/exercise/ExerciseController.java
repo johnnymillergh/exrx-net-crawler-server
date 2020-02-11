@@ -1,6 +1,6 @@
 package com.jmsoftware.exrxnetcrawlerserver.exercise;
 
-import com.jmsoftware.exrxnetcrawlerserver.common.ResponseBodyBean;
+import com.jmsoftware.exrxnetcrawlerserver.common.bean.ResponseBodyBean;
 import com.jmsoftware.exrxnetcrawlerserver.exercise.domain.SaveExerciseClassificationPayload;
 import com.jmsoftware.exrxnetcrawlerserver.exercise.domain.SaveExerciseGifPayload;
 import com.jmsoftware.exrxnetcrawlerserver.exercise.domain.SaveExercisePayload;
@@ -20,7 +20,7 @@ import java.io.IOException;
  * <p>
  * Change description here.
  *
- * @author Johnny Miller (锺俊), email: johnnysviva@outlook.com
+ * @author Johnny Miller (鍾俊), email: johnnysviva@outlook.com
  * @date 1/20/20 4:13 PM
  **/
 @Slf4j

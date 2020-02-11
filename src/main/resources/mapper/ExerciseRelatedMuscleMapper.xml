@@ -4,18 +4,19 @@
     <resultMap id="BaseResultMap" type="com.jmsoftware.exrxnetcrawlerserver.exercise.domain.ExerciseRelatedMusclePo">
         <!--@Table exercise_related_muscle-->
         <id column="id" jdbcType="BIGINT" property="id"/>
+        <result column="exercise_id" jdbcType="BIGINT" property="exerciseId"/>
         <result column="muscle_id" jdbcType="BIGINT" property="muscleId"/>
         <result column="related_muscle_type" jdbcType="TINYINT" property="relatedMuscleType"/>
     </resultMap>
 
     <sql id="Base_Column_List">
-        id, muscle_id, related_muscle_type
+        id, exercise_id, muscle_id, related_muscle_type
     </sql>
 
     <insert id="insertExerciserRelatedMuscle">
-        INSERT INTO exercise_related_muscle(muscle_id, related_muscle_type) VALUES
+        INSERT INTO exercise_related_muscle(exercise_id, muscle_id, related_muscle_type) VALUES
         <foreach collection="list" item="item" separator=",">
-            (#{item.muscleId}, #{item.relatedMuscleType})
+            (#{item.exerciseId}, #{item.muscleId}, #{item.relatedMuscleType})
         </foreach>
     </insert>
 </mapper>

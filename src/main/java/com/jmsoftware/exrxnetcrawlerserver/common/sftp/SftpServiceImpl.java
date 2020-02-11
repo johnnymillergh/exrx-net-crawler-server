@@ -1,4 +1,4 @@
-package com.jmsoftware.exrxnetcrawlerserver.common;
+package com.jmsoftware.exrxnetcrawlerserver.common.sftp;
 
 import com.jcraft.jsch.ChannelSftp;
 import com.jmsoftware.exrxnetcrawlerserver.common.aspect.ValidateArgument;

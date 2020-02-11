@@ -7,7 +7,7 @@ import lombok.Data;
  * <p>
  * Body Part Persistence Object.
  *
- * @author Johnny Miller (锺俊), email: johnnysviva@outlook.com
+ * @author Johnny Miller (鍾俊), email: johnnysviva@outlook.com
  * @date 1/15/20 9:17 AM
  * @see <a href='https://exrx.net/Lists/Directory'>Body Part</a>
  **/

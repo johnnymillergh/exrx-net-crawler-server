@@ -11,7 +11,7 @@ import java.util.List;
  * <p>
  * Change description here.
  *
- * @author Johnny Miller (锺俊), email: johnnysviva@outlook.com
+ * @author Johnny Miller (鍾俊), email: johnnysviva@outlook.com
  * @date 1/16/20 3:57 PM
  */
 @Mapper
@@ -27,10 +27,10 @@ public interface MuscleMapper{
     /**
      * Select by name muscle po.
      *
-     * @param name the name
+     * @param nameList the name list
      * @return the muscle po
      */
-    MusclePo selectByName(String name);
+    MusclePo selectByName(List<String> nameList);
 
     /**
      * Update by id integer.

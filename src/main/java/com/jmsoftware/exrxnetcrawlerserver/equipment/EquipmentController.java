@@ -1,6 +1,6 @@
 package com.jmsoftware.exrxnetcrawlerserver.equipment;
 
-import com.jmsoftware.exrxnetcrawlerserver.common.ResponseBodyBean;
+import com.jmsoftware.exrxnetcrawlerserver.common.bean.ResponseBodyBean;
 import com.jmsoftware.exrxnetcrawlerserver.equipment.domain.SaveEquipmentPayload;
 import com.jmsoftware.exrxnetcrawlerserver.equipment.service.EquipmentService;
 import io.swagger.annotations.Api;
@@ -18,7 +18,7 @@ import javax.validation.Valid;
  * <p>
  * Change description here.
  *
- * @author Johnny Miller (锺俊), email: johnnysviva@outlook.com
+ * @author Johnny Miller (鍾俊), email: johnnysviva@outlook.com
  * @date 1/20/20 5:06 PM
  **/
 @RestController

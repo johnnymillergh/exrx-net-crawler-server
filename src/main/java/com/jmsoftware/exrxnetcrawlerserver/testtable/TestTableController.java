@@ -1,7 +1,7 @@
 package com.jmsoftware.exrxnetcrawlerserver.testtable;
 
 import cn.hutool.core.collection.CollectionUtil;
-import com.jmsoftware.exrxnetcrawlerserver.common.ResponseBodyBean;
+import com.jmsoftware.exrxnetcrawlerserver.common.bean.ResponseBodyBean;
 import com.jmsoftware.exrxnetcrawlerserver.testtable.domain.GetByIdPayload;
 import com.jmsoftware.exrxnetcrawlerserver.testtable.domain.PictureFile;
 import com.jmsoftware.exrxnetcrawlerserver.testtable.domain.TestTablePo;
@@ -27,7 +27,7 @@ import java.util.List;
  * <p>
  * Change description here.
  *
- * @author Johnny Miller (锺俊), email: johnnysviva@outlook.com
+ * @author Johnny Miller (鍾俊), email: johnnysviva@outlook.com
  * @date 1/13/20 9:58 AM
  **/
 @RestController

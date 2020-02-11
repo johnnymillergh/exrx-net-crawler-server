@@ -2,8 +2,8 @@ package com.jmsoftware.exrxnetcrawlerserver.common.aspect;
 
 import cn.hutool.core.collection.CollUtil;
 import cn.hutool.json.JSONUtil;
-import com.jmsoftware.exrxnetcrawlerserver.common.HttpStatus;
-import com.jmsoftware.exrxnetcrawlerserver.common.ResponseBodyBean;
+import com.jmsoftware.exrxnetcrawlerserver.common.bean.ResponseBodyBean;
+import com.jmsoftware.exrxnetcrawlerserver.common.constant.HttpStatus;
 import com.jmsoftware.exrxnetcrawlerserver.common.exception.BaseException;
 import com.jmsoftware.exrxnetcrawlerserver.common.util.RequestUtil;
 import lombok.extern.slf4j.Slf4j;
@@ -24,7 +24,9 @@ import javax.validation.ConstraintViolationException;
 import java.util.Objects;
 
 /**
- * Description: ExceptionControllerAdvice
+ * <h1>ExceptionControllerAdvice</h1>
+ * <p>
+ * Exception advice for global controllers.
  *
  * @author Johnny Miller (鍾俊), email: johnnysviva@outlook.com
  * @date 2019-03-02 17:39

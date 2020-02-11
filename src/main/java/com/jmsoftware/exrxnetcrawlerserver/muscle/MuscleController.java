@@ -1,6 +1,6 @@
 package com.jmsoftware.exrxnetcrawlerserver.muscle;
 
-import com.jmsoftware.exrxnetcrawlerserver.common.ResponseBodyBean;
+import com.jmsoftware.exrxnetcrawlerserver.common.bean.ResponseBodyBean;
 import com.jmsoftware.exrxnetcrawlerserver.muscle.domain.SaveMusclePayload;
 import com.jmsoftware.exrxnetcrawlerserver.muscle.domain.UpdateMuscleDetailsPayload;
 import com.jmsoftware.exrxnetcrawlerserver.muscle.service.MuscleService;
@@ -19,7 +19,7 @@ import java.util.List;
  * <p>
  * Change description here.
  *
- * @author Johnny Miller (锺俊), email: johnnysviva@outlook.com
+ * @author Johnny Miller (鍾俊), email: johnnysviva@outlook.com
  * @date 1/16/20 3:13 PM
  **/
 @RestController
