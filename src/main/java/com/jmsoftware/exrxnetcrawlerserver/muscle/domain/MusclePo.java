@@ -9,7 +9,7 @@ import lombok.Data;
  * <p>
  * Corresponded with table `muscle`.
  *
- * @author Johnny Miller (锺俊), email: johnnysviva@outlook.com
+ * @author Johnny Miller (鍾俊), email: johnnysviva@outlook.com
  * @date 1/16/20 3:55 PM
  * @see <a href='https://exrx.net/Lists/Muscle'>Muscle</a>
  **/

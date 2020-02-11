@@ -17,7 +17,7 @@ import java.util.TimeZone;
  * <p>
  * Application entrance.
  *
- * @author Johnny Miller (锺俊), email: johnnysviva@outlook.com
+ * @author Johnny Miller (鍾俊), email: johnnysviva@outlook.com
  * @date 1/13/20 10:05 AM
  * @see <a href="http://localhost:8080/exrx-net-crawler-server-dev_loc/doc">Click me to view API Documentation</a>
  */

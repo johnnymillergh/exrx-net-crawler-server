@@ -7,7 +7,7 @@ import lombok.Getter;
  * <p>
  * 1 - Utility, 2 - Mechanics, 3 - Force
  *
- * @author Johnny Miller (锺俊), email: johnnysviva@outlook.com
+ * @author Johnny Miller (鍾俊), email: johnnysviva@outlook.com
  * @date 1/21/20 10:55 AM
  **/
 @Getter

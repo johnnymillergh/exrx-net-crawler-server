@@ -1,4 +1,4 @@
-package com.jmsoftware.exrxnetcrawlerserver.common;
+package com.jmsoftware.exrxnetcrawlerserver.common.controller;
 
 import io.swagger.annotations.Api;
 import lombok.extern.slf4j.Slf4j;
@@ -16,7 +16,9 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * Description: ErrorController, change description here.
+ * <h1>ErrorController</h1>
+ * <p>
+ * Error controller.
  *
  * @author Johnny Miller (鍾俊), email: johnnysviva@outlook.com
  * @date 2019-03-02 16:56

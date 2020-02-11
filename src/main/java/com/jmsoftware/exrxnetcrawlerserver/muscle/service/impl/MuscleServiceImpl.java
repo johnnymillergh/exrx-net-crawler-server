@@ -3,8 +3,8 @@ package com.jmsoftware.exrxnetcrawlerserver.muscle.service.impl;
 import cn.hutool.core.bean.BeanUtil;
 import cn.hutool.core.collection.CollectionUtil;
 import com.baomidou.mybatisplus.core.toolkit.StringUtils;
-import com.jmsoftware.exrxnetcrawlerserver.common.SftpService;
-import com.jmsoftware.exrxnetcrawlerserver.common.SftpSubDirectory;
+import com.jmsoftware.exrxnetcrawlerserver.common.sftp.SftpService;
+import com.jmsoftware.exrxnetcrawlerserver.common.sftp.SftpSubDirectory;
 import com.jmsoftware.exrxnetcrawlerserver.common.util.CaseConverter;
 import com.jmsoftware.exrxnetcrawlerserver.muscle.domain.*;
 import com.jmsoftware.exrxnetcrawlerserver.muscle.mapper.MuscleMapper;
@@ -19,6 +19,7 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
+import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Optional;
@@ -28,7 +29,7 @@ import java.util.Optional;
  * <p>
  * Change description here.
  *
- * @author Johnny Miller (锺俊), email: johnnysviva@outlook.com
+ * @author Johnny Miller (鍾俊), email: johnnysviva@outlook.com
  * @date 1/16/20 3:59 PM
  **/
 @Slf4j
@@ -107,6 +108,7 @@ public class MuscleServiceImpl implements MuscleService {
         if (StringUtils.checkValNull(name)) {
             return null;
         }
-        return muscleMapper.selectByName(name);
+        var nameList = Arrays.asList(name.split(" "));
+        return muscleMapper.selectByName(nameList);
     }
 }

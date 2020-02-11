@@ -5,7 +5,9 @@ import org.codehaus.plexus.util.StringUtils;
 import javax.servlet.http.HttpServletRequest;
 
 /**
- * Description: RequestUtil, change description here.
+ * <h1>RequestUtil</h1>
+ * <p>
+ * Request util.
  *
  * @author Johnny Miller (鍾俊), email: johnnysviva@outlook.com
  * @date 2019-03-02 20:00

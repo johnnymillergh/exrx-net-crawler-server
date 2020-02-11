@@ -1,12 +1,14 @@
 package com.jmsoftware.exrxnetcrawlerserver.common.exception;
 
-import com.jmsoftware.exrxnetcrawlerserver.common.HttpStatus;
-import com.jmsoftware.exrxnetcrawlerserver.common.IUniversalStatus;
+import com.jmsoftware.exrxnetcrawlerserver.common.constant.HttpStatus;
+import com.jmsoftware.exrxnetcrawlerserver.common.constant.IUniversalStatus;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
 /**
- * Description: BaseException, change description here.
+ * <h1>BaseException</h1>
+ * <p>
+ * Base exception.
  *
  * @author Johnny Miller (鍾俊), email: johnnysviva@outlook.com
  * @date 2019-03-23 16:23

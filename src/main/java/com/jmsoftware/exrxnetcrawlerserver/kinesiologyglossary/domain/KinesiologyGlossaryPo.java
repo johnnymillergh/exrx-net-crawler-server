@@ -7,7 +7,7 @@ import lombok.Data;
  * <p>
  * Change description here.
  *
- * @author Johnny Miller (锺俊), email: johnnysviva@outlook.com
+ * @author Johnny Miller (鍾俊), email: johnnysviva@outlook.com
  * @date 1/20/20 5:21 PM
  **/
 @Data
@@ -27,5 +27,5 @@ public class KinesiologyGlossaryPo {
     /**
      * The parent ID of kinesiology glossary.
      */
-    private Integer parentId;
+    private Long parentId;
 }

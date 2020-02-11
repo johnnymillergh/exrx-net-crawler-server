@@ -1,6 +1,6 @@
 package com.jmsoftware.exrxnetcrawlerserver.testtable.service.impl;
 
-import com.jmsoftware.exrxnetcrawlerserver.common.SftpService;
+import com.jmsoftware.exrxnetcrawlerserver.common.sftp.SftpService;
 import com.jmsoftware.exrxnetcrawlerserver.testtable.domain.TestTablePo;
 import com.jmsoftware.exrxnetcrawlerserver.testtable.mapper.TestTableMapper;
 import com.jmsoftware.exrxnetcrawlerserver.testtable.service.TestTableService;
@@ -17,7 +17,7 @@ import java.util.List;
  * <p>
  * Change description here.
  *
- * @author Johnny Miller (锺俊), email: johnnysviva@outlook.com
+ * @author Johnny Miller (鍾俊), email: johnnysviva@outlook.com
  * @date 1/13/20 9:59 AM
  **/
 @Service
