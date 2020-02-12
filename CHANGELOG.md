@@ -1,4 +1,31 @@
-# [1.1.0](https://github.com/johnnymillergh/exrx-net-crawler-server/compare/v1.0.0...v) (2020-02-11)
+# [1.1.1](https://github.com/johnnymillergh/exrx-net-crawler-server/compare/v1.1.0...v1.1.0) (2020-02-12)
+
+
+### Features
+
+* **$POM:** delete dependency `maven-model`; remove deprecated method `parsePom()` ([9aee3b1](https://github.com/johnnymillergh/exrx-net-crawler-server/commit/9aee3b11d4508a9eb426ada73a964b757e41e18e))
+* **$ProjectProperty:** capture all exceptions fot reading POM file ([a0b3c70](https://github.com/johnnymillergh/exrx-net-crawler-server/commit/a0b3c70d7756fcb71ce7539683643df339ba04c2))
+
+
+### Performance Improvements
+
+* **$Docker:** remove Maven plugin `dockerfile-maven-plugin` and Dockerfile ([f805a67](https://github.com/johnnymillergh/exrx-net-crawler-server/commit/f805a678b9146873248c7b3f710b16bea44d5f5d))
+* **$POM:** define server port in POM ([a15fcd6](https://github.com/johnnymillergh/exrx-net-crawler-server/commit/a15fcd63a61dfc022555d956dcfb6015d2d8e798))
+* **$POM, Jib:** add JIB support ([0ac4fe6](https://github.com/johnnymillergh/exrx-net-crawler-server/commit/0ac4fe6baf3ebbdd4565503f0721c35a964437ed))
+* **$Swagger2:** refine configuration ([a69cf07](https://github.com/johnnymillergh/exrx-net-crawler-server/commit/a69cf078999cb0ead736c7543161c6e2db24ddd8))
+
+
+### BREAKING CHANGES
+
+* **$Docker:** remove Maven plugin `dockerfile-maven-plugin` and Dockerfile
+* **$POM:** delete dependency `maven-model`; remove deprecated method `parsePom()`
+* **$POM, Jib:** support JIB dockerizing tech
+* **$POM:** define server port in POM
+* **$ProjectProperty:** capture all exceptions fot reading POM file
+
+
+
+# [1.1.0](https://github.com/johnnymillergh/exrx-net-crawler-server/compare/v1.1.0...v1.0.0) (2020-02-11)
 
 
 ### chore

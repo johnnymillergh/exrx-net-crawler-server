@@ -1,6 +1,6 @@
 package com.jmsoftware.exrxnetcrawlerserver.common.util;
 
-import org.codehaus.plexus.util.StringUtils;
+import com.baomidou.mybatisplus.core.toolkit.StringUtils;
 
 import javax.servlet.http.HttpServletRequest;
 

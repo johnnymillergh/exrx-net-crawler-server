@@ -2,21 +2,21 @@ version: "3.7"
 
 services:
   mysql-server:
-    container_name: mysql-server-enc-dev_dkr
+    container_name: mysql-server-stage
     image: "mysql:latest"
     environment:
       MYSQL_ROOT_PASSWORD: "jm@mysql"
     ports:
       - "3306:3306"
     volumes:
-      - /Users/johnny/docker-file-mapping/mysql-8.0.18-1debian9:/var/lib/mysql
+      - /Users/johnny/docker-file-mapping/mysql-8.0.19-1debian9:/var/lib/mysql
     command: mysqld --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
     networks:
       exrx_net_crawler_network:
-        ipv4_address: 172.16.238.10
+        ipv4_address: 172.11.239.2
 
   atmoz-sftp-server:
-    container_name: atmoz-sftp-server-enc-dev_dkr
+    container_name: atmoz-sftp-server-stage
     image: atmoz/sftp:latest
     ports:
       - "23:22"
@@ -26,21 +26,21 @@ services:
     command: "johnny:atmoz@sftp:::upload"
     networks:
       exrx_net_crawler_network:
-        ipv4_address: 172.16.238.11
+        ipv4_address: 172.11.239.3
 
   exrx-net-crawler-server:
     depends_on:
       - mysql-server
       - atmoz-sftp-server
-    container_name: exrx-net-crawler-server-dev_dkr
-    image: "ijohnnymiller/exrx-net-crawler-server-dev_dkr:${TAG}"
+    container_name: exrx-net-crawler-server-stage
+    image: "ijohnnymiller/exrx-net-crawler-server-stage:${TAG}"
     ports:
       - "8080:8080"
     volumes:
-      - /Users/johnny/docker-file-mapping/exrx-net-crawler-server:/log-dev_dkr
+      - /Users/johnny/docker-file-mapping/exrx-net-crawler-server:/logs-stage
     networks:
       exrx_net_crawler_network:
-        ipv4_address: 172.11.239.12
+        ipv4_address: 172.11.239.4
 
 networks:
   exrx_net_crawler_network:
