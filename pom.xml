@@ -76,6 +76,44 @@
                 </configuration>
             </plugin>
 
+            <!--https://github.com/GoogleContainerTools/jib/blob/master/jib-maven-plugin/README.md-->
+            <plugin>
+                <groupId>com.google.cloud.tools</groupId>
+                <artifactId>jib-maven-plugin</artifactId>
+                <version>2.0.0</version>
+                <executions>
+                    <!-- Bind `jib:build` to a Maven lifecycle `compile` -->
+                    <execution>
+                        <phase>compile</phase>
+                        <goals>
+                            <goal>dockerBuild</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <from>
+                        <image>openjdk:11.0.5-slim</image>
+                    </from>
+                    <to>
+                        <image>docker.io/ijohnnymiller/${project.artifactId}-${envAlias}</image>
+                        <tags>
+                            <tag>${project.version}</tag>
+                        </tags>
+                    </to>
+                    <container>
+                        <!-- The root directory on the container where the app's contents are placed. -->
+                        <appRoot>/${project.artifactId}-${envAlias}</appRoot>
+                        <jvmFlags>
+                            <jvmFlag>-Xmx256m</jvmFlag>
+                        </jvmFlags>
+                        <ports>
+                            <port>${port}</port>
+                        </ports>
+                        <creationTime>USE_CURRENT_TIMESTAMP</creationTime>
+                    </container>
+                </configuration>
+            </plugin>
+
             <!-- https://github.com/spotify/dockerfile-maven/tree/master/docs -->
             <plugin>
                 <groupId>com.spotify</groupId>

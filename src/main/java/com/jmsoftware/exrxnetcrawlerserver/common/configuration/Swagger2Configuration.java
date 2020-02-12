@@ -43,7 +43,6 @@ public class Swagger2Configuration {
     private ApiInfo apiInfo() {
         String projectArtifactId = projectProperty.getProjectArtifactId();
         String version = projectProperty.getVersion();
-        String license = projectProperty.getLicenses().get(0).getUrl();
         if (CollectionUtil.isEmpty(projectProperty.getDevelopers())) {
             return new ApiInfoBuilder()
                     .title(String.format("API for %s@%s (%s)", projectArtifactId, version,
@@ -55,11 +54,11 @@ public class Swagger2Configuration {
                                                LINE_SEPARATOR,
                                                projectProperty.getEnvironment(),
                                                projectProperty.getEnvironmentAlias()))
-                    .license(license)
                     .version(version)
                     .build();
         }
         Developer developer = projectProperty.getDevelopers().get(0);
+        String license = projectProperty.getLicenses().get(0).getUrl();
         return new ApiInfoBuilder()
                 .title(String.format("API for %s@%s (%s)", projectArtifactId, version,
                                      projectProperty.getEnvironmentAlias()))
