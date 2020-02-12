@@ -2,8 +2,6 @@ package com.jmsoftware.exrxnetcrawlerserver.common.configuration;
 
 import lombok.Data;
 import lombok.extern.slf4j.Slf4j;
-import org.apache.maven.model.Developer;
-import org.apache.maven.model.License;
 import org.apache.maven.model.Model;
 import org.apache.maven.model.io.xpp3.MavenXpp3Reader;
 import org.springframework.boot.context.properties.ConfigurationProperties;
@@ -14,7 +12,6 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.InputStream;
 import java.io.InputStreamReader;
-import java.util.List;
 import java.util.Optional;
 
 /**
@@ -47,9 +44,10 @@ public class ProjectProperty {
     private String organizationUrl;
     private String issueManagementSystem;
     private String issueManagementUrl;
+    private String developerName;
+    private String developerEmail;
+    private String developerUrl;
     private Model model;
-    private List<License> licenses;
-    private List<Developer> developers;
 
     /**
      * Init properties after dependencies injection is done.
@@ -60,18 +58,20 @@ public class ProjectProperty {
         this.model = this.parsePom();
         var optionalModel = Optional.ofNullable(this.model);
         optionalModel.ifPresentOrElse(model1 -> {
-            this.licenses = model1.getLicenses();
-            this.developers = model1.getDevelopers();
+            log.info("Model: {}", model1);
         }, () -> {
             log.error("Cannot found the file 'pom.xml'! Failed to read licenses and developer info.");
         });
     }
 
     /**
-     * Parse pom.xml
+     * [Deprecated] Parse pom.xml
+     * <p>
+     * Will be deleted in the future.
      *
      * @return Project model
      */
+    @Deprecated
     private Model parsePom() {
         var reader = new MavenXpp3Reader();
         // Read pom.xml from relative path

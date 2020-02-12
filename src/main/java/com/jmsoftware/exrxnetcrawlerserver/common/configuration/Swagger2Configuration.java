@@ -1,8 +1,6 @@
 package com.jmsoftware.exrxnetcrawlerserver.common.configuration;
 
-import cn.hutool.core.collection.CollectionUtil;
 import lombok.RequiredArgsConstructor;
-import org.apache.maven.model.Developer;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import springfox.documentation.builders.ApiInfoBuilder;
@@ -41,37 +39,29 @@ public class Swagger2Configuration {
     }
 
     private ApiInfo apiInfo() {
-        String projectArtifactId = projectProperty.getProjectArtifactId();
-        String version = projectProperty.getVersion();
-        if (CollectionUtil.isEmpty(projectProperty.getDevelopers())) {
-            return new ApiInfoBuilder()
-                    .title(String.format("API for %s@%s (%s)", projectArtifactId, version,
-                                         projectProperty.getEnvironmentAlias()))
-                    .description(String.format("%s %sArtifact ID: %s%sEnvironment: %s (%s)",
-                                               projectProperty.getDescription(),
-                                               LINE_SEPARATOR,
-                                               projectArtifactId,
-                                               LINE_SEPARATOR,
-                                               projectProperty.getEnvironment(),
-                                               projectProperty.getEnvironmentAlias()))
-                    .version(version)
-                    .build();
-        }
-        Developer developer = projectProperty.getDevelopers().get(0);
-        String license = projectProperty.getLicenses().get(0).getUrl();
+        var projectArtifactId = projectProperty.getProjectArtifactId();
+        var version = projectProperty.getVersion();
+        var developerEmail = projectProperty.getDeveloperEmail();
+        var developerUrl = projectProperty.getDeveloperUrl();
+        var environmentAlias = projectProperty.getEnvironmentAlias();
         return new ApiInfoBuilder()
-                .title(String.format("API for %s@%s (%s)", projectArtifactId, version,
-                                     projectProperty.getEnvironmentAlias()))
+                .title(String.format("API for %s@%s (%s)",
+                                     projectArtifactId,
+                                     version,
+                                     environmentAlias))
                 .description(String.format("%s %sArtifact ID: %s%sEnvironment: %s (%s)",
                                            projectProperty.getDescription(),
                                            LINE_SEPARATOR,
                                            projectArtifactId,
                                            LINE_SEPARATOR,
                                            projectProperty.getEnvironment(),
-                                           projectProperty.getEnvironmentAlias()))
-                .contact(new Contact(String.format("%s, email: %s", developer.getName(), developer.getEmail()),
-                                     projectProperty.getUrl(), developer.getEmail()))
-                .license(license)
+                                           environmentAlias))
+                .contact(new Contact(String.format("%s, email: %s%sHome page: %s",
+                                                   projectProperty.getDeveloperName(),
+                                                   developerEmail,
+                                                   LINE_SEPARATOR,
+                                                   developerUrl),
+                                     developerUrl, developerEmail))
                 .version(version)
                 .build();
     }
