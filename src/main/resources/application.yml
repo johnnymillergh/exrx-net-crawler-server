@@ -51,6 +51,7 @@ mybatis-plus:
 
 project:
   property:
+    base-package: com.jmsoftware.exrxnetcrawlerserver
     context-path: /@project.artifactId@-@envAlias@
     group-id: @project.groupId@
     artifact-id: @project.artifactId@
@@ -66,4 +67,6 @@ project:
     organization-url: @project.organization.url@
     issue-management-system: @project.issueManagement.system@
     issue-management-url: @project.issueManagement.url@
-    base-package: com.jmsoftware.exrxnetcrawlerserver
+    developer-name: @developerName@
+    developer-email: @developerEmail@
+    developer-url: @developerUrl@

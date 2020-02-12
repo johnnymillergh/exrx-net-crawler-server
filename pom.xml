@@ -7,7 +7,7 @@
     <!-- Project Basics -->
     <groupId>com.jmsoftware</groupId>
     <artifactId>exrx-net-crawler-server</artifactId>
-    <version>1.1.0</version>
+    <version>1.1.1-SNAPSHOT</version>
     <name>ExRx.net Crawler Server</name>
     <description>ExRx.net Crawler Server is a Spring Boot based project, which is responsible for managing the
         net-crawling and exercise data.
@@ -15,6 +15,9 @@
     <properties>
         <java.version>11</java.version>
         <spring-content-version>1.0.0.M5</spring-content-version>
+        <developerName>Johnny Miller (鍾俊)</developerName>
+        <developerEmail>johnnysviva@outlook.com</developerEmail>
+        <developerUrl>https://www.linkedin.com/in/ijohnnymiller</developerUrl>
     </properties>
     <parent>
         <groupId>org.springframework.boot</groupId>
@@ -76,30 +79,41 @@
                 </configuration>
             </plugin>
 
-            <!-- https://github.com/spotify/dockerfile-maven/tree/master/docs -->
+            <!--https://github.com/GoogleContainerTools/jib/blob/master/jib-maven-plugin/README.md-->
             <plugin>
-                <groupId>com.spotify</groupId>
-                <artifactId>dockerfile-maven-plugin</artifactId>
-                <version>1.4.12</version>
+                <groupId>com.google.cloud.tools</groupId>
+                <artifactId>jib-maven-plugin</artifactId>
+                <version>2.0.0</version>
                 <executions>
+                    <!-- Bind `jib:build` to a Maven lifecycle `compile` -->
                     <execution>
-                        <id>default</id>
-                        <phase>install</phase>
+                        <phase>compile</phase>
                         <goals>
-                            <goal>build</goal>
-                            <!-- <goal>push</goal> -->
+                            <goal>dockerBuild</goal>
                         </goals>
                     </execution>
                 </executions>
                 <configuration>
-                    <contextDirectory>${project.basedir}</contextDirectory>
-                    <buildDirectory>${project.basedir}/target</buildDirectory>
-                    <dockerfile>${project.basedir}/Dockerfile</dockerfile>
-                    <repository>ijohnnymiller/${project.artifactId}-${envAlias}</repository>
-                    <tag>${project.version}</tag>
-                    <buildArgs>
-                        <JAR_FILE>target/${project.build.finalName}.jar</JAR_FILE>
-                    </buildArgs>
+                    <from>
+                        <image>openjdk:11.0.5-slim</image>
+                    </from>
+                    <to>
+                        <image>docker.io/ijohnnymiller/${project.artifactId}-${envAlias}</image>
+                        <tags>
+                            <tag>${project.version}</tag>
+                        </tags>
+                    </to>
+                    <container>
+                        <!-- The root directory on the container where the app's contents are placed. -->
+                        <appRoot>/${project.artifactId}-${envAlias}</appRoot>
+                        <jvmFlags>
+                            <jvmFlag>-Xmx256m</jvmFlag>
+                        </jvmFlags>
+                        <ports>
+                            <port>${port}</port>
+                        </ports>
+                        <creationTime>USE_CURRENT_TIMESTAMP</creationTime>
+                    </container>
                 </configuration>
             </plugin>
         </plugins>
@@ -113,6 +127,7 @@
             <properties>
                 <env>development-local</env>
                 <envAlias>dev_loc</envAlias>
+                <port>8080</port>
             </properties>
             <activation>
                 <activeByDefault>true</activeByDefault>
@@ -124,6 +139,7 @@
             <properties>
                 <env>development-docker</env>
                 <envAlias>dev_dkr</envAlias>
+                <port>8080</port>
             </properties>
         </profile>
 
@@ -132,6 +148,7 @@
             <properties>
                 <env>test</env>
                 <envAlias>test</envAlias>
+                <port>8080</port>
             </properties>
         </profile>
 
@@ -140,6 +157,7 @@
             <properties>
                 <env>stage</env>
                 <envAlias>stage</envAlias>
+                <port>8080</port>
             </properties>
         </profile>
 
@@ -148,6 +166,7 @@
             <properties>
                 <env>production</env>
                 <envAlias>prod</envAlias>
+                <port>8080</port>
             </properties>
         </profile>
     </profiles>
@@ -231,11 +250,6 @@
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
             <optional>true</optional>
-        </dependency>
-        <dependency>
-            <groupId>org.apache.maven</groupId>
-            <artifactId>maven-model</artifactId>
-            <version>3.6.3</version>
         </dependency>
 
         <!-- Brings the popular ruby faker gem to Java https://github.com/DiUS/java-faker -->

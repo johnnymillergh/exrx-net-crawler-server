@@ -1,12 +1,12 @@
 server:
-  port: 8080
+  port: @port@
 
 spring:
   datasource:
     name: datasource-one
     driver-class-name: com.mysql.cj.jdbc.Driver
     type: com.alibaba.druid.pool.DruidDataSource
-    url: jdbc:mysql://localhost:3306/exercise_dictionary?useSSL=true&useUnicode=true
+    url: jdbc:mysql://172.11.239.2:3306/exercise_dictionary?useSSL=true&useUnicode=true
     username: root
     password: jm@mysql
   devtools:
@@ -23,8 +23,8 @@ logging:
 sftp:
   client:
     configuration:
-      host: localhost
-      port: 23
+      host: 172.11.239.3
+      port: 22
       user: johnny
       password: atmoz@sftp
       directory: upload
