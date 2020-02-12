@@ -113,6 +113,7 @@
             <properties>
                 <env>development-local</env>
                 <envAlias>dev_loc</envAlias>
+                <port>8080</port>
             </properties>
             <activation>
                 <activeByDefault>true</activeByDefault>
@@ -124,6 +125,7 @@
             <properties>
                 <env>development-docker</env>
                 <envAlias>dev_dkr</envAlias>
+                <port>8080</port>
             </properties>
         </profile>
 
@@ -132,6 +134,7 @@
             <properties>
                 <env>test</env>
                 <envAlias>test</envAlias>
+                <port>8080</port>
             </properties>
         </profile>
 
@@ -140,6 +143,7 @@
             <properties>
                 <env>stage</env>
                 <envAlias>stage</envAlias>
+                <port>8080</port>
             </properties>
         </profile>
 
@@ -148,6 +152,7 @@
             <properties>
                 <env>production</env>
                 <envAlias>prod</envAlias>
+                <port>8080</port>
             </properties>
         </profile>
     </profiles>
