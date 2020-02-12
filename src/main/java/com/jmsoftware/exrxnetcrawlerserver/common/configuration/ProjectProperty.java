@@ -6,15 +6,13 @@ import org.apache.maven.model.Developer;
 import org.apache.maven.model.License;
 import org.apache.maven.model.Model;
 import org.apache.maven.model.io.xpp3.MavenXpp3Reader;
-import org.codehaus.plexus.util.xml.pull.XmlPullParserException;
-import org.springframework.boot.context.event.ApplicationReadyEvent;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.PostConstruct;
 import java.io.File;
 import java.io.FileReader;
-import java.io.IOException;
+import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.List;
 import java.util.Optional;
@@ -61,28 +59,12 @@ public class ProjectProperty {
         log.info("Start to init properties after dependency injection was done.");
         this.model = this.parsePom();
         var optionalModel = Optional.ofNullable(this.model);
-        optionalModel.ifPresent(model1 -> {
+        optionalModel.ifPresentOrElse(model1 -> {
             this.licenses = model1.getLicenses();
             this.developers = model1.getDevelopers();
+        }, () -> {
+            log.error("Cannot found the file 'pom.xml'! Failed to read licenses and developer info.");
         });
-        optionalModel.orElseThrow(() -> new IllegalArgumentException("Cannot found the file 'pom.xml'!"));
-    }
-
-    /**
-     * Alternative way to init properties after dependencies injection is done.
-     *
-     * @param event application ready event.
-     */
-    // @EventListener
-    public void onApplicationReady(ApplicationReadyEvent event) {
-        log.info("Start to init properties. On received event: {}", event.toString());
-        this.model = this.parsePom();
-        var optionalModel = Optional.ofNullable(this.model);
-        optionalModel.ifPresent(model1 -> {
-            this.licenses = model1.getLicenses();
-            this.developers = model1.getDevelopers();
-        });
-        optionalModel.orElseThrow(() -> new IllegalArgumentException("Cannot found the file 'pom.xml'!"));
     }
 
     /**
@@ -99,18 +81,26 @@ public class ProjectProperty {
                 log.info("Found 'pom.xml'. POM path = {}", pom.getPath());
                 return reader.read(new FileReader(pom));
             }
-        } catch (IOException | XmlPullParserException e) {
-            log.error("Error occurred when read pom.xml. Filepath: {}", POM_FILE_NAME, e);
+        } catch (Exception e) {
+            log.error("Exception occurred when reading pom.xml! Filepath: {}", POM_FILE_NAME, e);
         }
         // Read pom.xml from packaged jar
         var pomFilePath = String.format("/META-INF/maven/%s/%s/%s", groupId, artifactId, POM_FILE_NAME);
         log.info("Read 'pom.xml' from packaged jar. Filepath = {}", pomFilePath);
+        InputStream pomResourceInputStream;
         try {
-            return reader.read(
-                    new InputStreamReader(ProjectProperty.class.getResourceAsStream(pomFilePath))
-                              );
-        } catch (IOException | XmlPullParserException e) {
-            log.error("Error occurred when read pom.xml. Filepath: {}", pomFilePath, e);
+            pomResourceInputStream = ProjectProperty.class.getResourceAsStream(pomFilePath);
+            log.info("Pom resource: {}", pomResourceInputStream);
+        } catch (Exception e) {
+            log.error("Exception occurred when getting Pom resource stream!", e);
+            return null;
+        }
+        try {
+            log.info("Found 'pom.xml'. POM path = {}", pomFilePath);
+            return reader.read(new InputStreamReader(pomResourceInputStream));
+        } catch (Exception e) {
+            log.error("Exception occurred when reading pom.xml from packaged jar! Filepath: {}, pomResource: {}",
+                      pomFilePath, pomResourceInputStream, e);
         }
         return null;
     }
