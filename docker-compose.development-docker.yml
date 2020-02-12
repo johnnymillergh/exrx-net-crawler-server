@@ -2,7 +2,7 @@ version: "3.7"
 
 services:
   mysql-server:
-    container_name: mysql-server-enc-dev_dkr
+    container_name: mysql-server-dev_dkr
     image: "mysql:latest"
     environment:
       MYSQL_ROOT_PASSWORD: "jm@mysql"
@@ -16,7 +16,7 @@ services:
         ipv4_address: 172.11.239.2
 
   atmoz-sftp-server:
-    container_name: atmoz-sftp-server-enc-dev_dkr
+    container_name: atmoz-sftp-server-dev_dkr
     image: atmoz/sftp:latest
     ports:
       - "23:22"
